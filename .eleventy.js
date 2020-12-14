@@ -2,7 +2,7 @@ const filters = require('./config/eleventy/filters.js');
 const transforms = require('./config/eleventy/transforms.js');
 const shortcodes = require('./config/eleventy/shortcodes.js');
 const iconsprite = require('./config/eleventy/iconsprite.js');
-const queryDatoGraphQL = require('./config/eleventy/query-dato-graphql.js');
+const queryDatoGraphQL = require('./config/eleventy/query-dato-graphql');
 
 module.exports = function (config) {
   // Filters

@@ -1,5 +1,8 @@
 const fetch = require('node-fetch');
-
+const {
+  addLocaleToAllDataRecords,
+  deepFlattenLocaleRecords,
+} = require('./locale-helpers');
 require('dotenv-safe').config();
 
 // const isDevelopment = (process.env.ELEVENTY_ENV === 'development');
@@ -12,11 +15,11 @@ const USE_CACHE = true;
 const CACHE = {};
 const LOCALES = ['nl', 'en'];
 
-function requestToMessage({ query }) {
+const requestToMessage = ({ query }) => {
   const queryName =
     (query.match(/^query ([A-z]+)/) || [])[1] || '(unnamed query)';
   return `"${queryName}"`;
-}
+};
 
 module.exports = ({ query }) => {
   const cacheKey = JSON.stringify({ query });
@@ -56,22 +59,7 @@ module.exports = ({ query }) => {
           return response.data;
         }
       })
-      .then(data => {
-        const key = Object.keys(data)[0];
-        const value = data[key];
-        // For multiple records, add locale to each record
-        if (Array.isArray(value)) {
-          const augmentedData = value.map(dataObj => ({
-            ...dataObj,
-            locale,
-          }));
-          return { [key]: augmentedData };
-        }
-        // Otherwise, add it to the single record
-        else {
-          return { [key]: { ...value, locale } };
-        }
-      })
+      .then(addLocaleToAllDataRecords(locale))
   );
 
   CACHE[cacheKey] = Promise.all(localePromises)
@@ -80,20 +68,6 @@ module.exports = ({ query }) => {
       console.log(x);
       return x;
     })
-    .then(objArray =>
-      objArray.reduce((accObj, currObj) => {
-        const key = Object.keys(currObj)[0];
-        const value = currObj[key];
-        const accArr = accObj[key] || [];
-        // For multiple records, merge the arrays
-        if (Array.isArray(value)) {
-          return { [key]: [...accArr, ...value] };
-        }
-        // For single records, add record to array
-        else {
-          return { [key]: [...accArr, value] };
-        }
-      }, {})
-    );
+    .then(deepFlattenLocaleRecords);
   return CACHE[cacheKey];
 };
