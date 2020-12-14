@@ -1,0 +1,35 @@
+// ---------------------------------
+// MASTER STYLESHEET INDEX
+// ---------------------------------
+
+//--------------------
+// UTILITIES
+//--------------------
+
+@import 'assets/styles/utils/functions';
+@import 'assets/styles/utils/variables';
+@import 'assets/styles/utils/mixins';
+
+//--------------------
+// BASE MODULES
+// partials with global scope
+//--------------------
+
+@import 'assets/styles/base/fonts';
+@import 'assets/styles/base/normalize';
+@import 'assets/styles/base/reboot';
+@import 'assets/styles/base/layout';
+@import 'assets/styles/base/typography';
+@import 'assets/styles/base/focus';
+@import 'assets/styles/base/utilities';
+@import 'assets/styles/base/screenreader';
+@import 'assets/styles/base/animation';
+
+//--------------------
+// COMPONENTS
+// partials with local scope to a component
+//--------------------
+
+@import 'components/site-footer/site-footer';
+@import 'components/site-header/site-header';
+@import 'components/site-navigation/site-navigation';
