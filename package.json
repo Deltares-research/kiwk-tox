@@ -20,7 +20,7 @@
     "url": "https://github.com/voorhoede/KIWK-TOX"
   },
   "author": "De Voorhoede",
-  "private": true,
+  "license": "GNU",
   "dependencies": {
     "focus-trap": "^5.1.0",
     "focus-visible": "^5.2.0"
@@ -36,6 +36,7 @@
     "cross-env": "^7.0.2",
     "cssesc": "^3.0.0",
     "del-cli": "^3.0.1",
+    "dotenv-safe": "^8.2.0",
     "gulp": "^4.0.2",
     "gulp-filter": "^6.0.0",
     "gulp-rev": "^9.0.0",
@@ -45,6 +46,7 @@
     "html-minifier": "^4.0.0",
     "luxon": "^1.25.0",
     "memfs": "^3.2.0",
+    "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
     "npm-run-all": "^4.1.5",
     "svg-sprite": "^1.5.0",

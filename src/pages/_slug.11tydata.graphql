@@ -1,0 +1,19 @@
+query PageSlug {
+  allPages {
+    title
+    slug
+    seoMeta {
+      title
+      description
+      image {
+        url
+      }
+    }
+    body {
+      ... on RichTextRecord {
+        _modelApiKey
+        richText
+      }
+    }
+  }
+}
