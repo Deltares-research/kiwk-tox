@@ -1,0 +1,5 @@
+query Home($locale: SiteLocale) {
+  home(locale: $locale) {
+    title
+  }
+}

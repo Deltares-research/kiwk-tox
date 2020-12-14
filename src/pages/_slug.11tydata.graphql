@@ -1,5 +1,5 @@
-query PageSlug {
-  allPages {
+query PageSlug($locale: SiteLocale) {
+  allPages(locale: $locale) {
     title
     slug
     seoMeta {
