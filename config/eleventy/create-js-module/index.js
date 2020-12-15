@@ -1,4 +1,4 @@
-const eleventyTemplateClass = require('./eleventyTemplateClass');
+const eleventyTemplateClass = require('./eleventy-template-class');
 
 module.exports = function (fullPath, frontMatter) {
   const fileName = fullPath.split('/').pop().split('.').shift();
