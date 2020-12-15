@@ -61,10 +61,11 @@ module.exports = ({ query }) => {
 
   CACHE[cacheKey] = Promise.all(localePromises)
     .then(nestedArray => nestedArray.flat())
-    .then(deepFlattenLocaleRecords);
-  // .then(x => {
-  //   if (cacheReadableName === '"App"') console.log(cacheReadableName, x);
-  //   return x;
-  // });
+    .then(deepFlattenLocaleRecords)
+    .then(x => {
+      // if (cacheReadableName === '"App"')
+      console.log(cacheReadableName, x);
+      return x;
+    });
   return CACHE[cacheKey];
 };

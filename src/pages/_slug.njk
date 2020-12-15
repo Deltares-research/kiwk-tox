@@ -12,5 +12,6 @@ eleventyComputed:
 
 <main>
   {{ item.title }}
+  {{ item.body[1].decisionTree.branches | log }}
   {# {{ modularContent(item.body, { data: { allArticles: allArticles } }) }} #}
 </main>

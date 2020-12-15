@@ -11,8 +11,14 @@ query PageSlug($locale: SiteLocale) {
     }
     body {
       ... on RichTextRecord {
-        _modelApiKey
         richText
+      }
+      ... on DecisionTreeModularBlockRecord {
+        decisionTree {
+          branches {
+            content
+          }
+        }
       }
     }
   }
