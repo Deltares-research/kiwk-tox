@@ -1,0 +1,33 @@
+{% raw %}
+<div id="decision-tree-app">
+  <template v-for="option in options">
+    <div
+      v-if="choices.includes(option.slug)"
+      class="tree__branch"
+    >
+      <p
+        v-if="option.content && option.content.length"
+        class="tree__question"
+      >
+        {{ option.content }}
+      </p>
+      <div
+        v-if="option.choices && option.choices.length"
+        class="tree__answers"
+      >
+        <p
+          v-for="choice in option.choices"
+          class="tree__answer"
+          :class="{ 'tree__answer--selected': option.selection === choice.pointsToSlug }"
+          @click="addChoice(option, choice.pointsToSlug)"
+        >
+          {{ choice.content }}
+        </p>
+      </div>
+    </div>
+  </template>
+</div>
+{% endraw %}
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="{{ '/assets/scripts/decision-tree.js' | url }}"></script>

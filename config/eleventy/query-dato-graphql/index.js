@@ -64,10 +64,6 @@ module.exports = ({ query }) => {
 
   CACHE[cacheKey] = Promise.all(localePromises)
     .then(nestedArray => nestedArray.flat())
-    .then(x => {
-      console.log(x);
-      return x;
-    })
     .then(deepFlattenLocaleRecords);
   return CACHE[cacheKey];
 };

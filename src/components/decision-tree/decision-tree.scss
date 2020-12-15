@@ -1,0 +1,30 @@
+.tree {
+  &__branch {
+    margin-bottom: 1rem;
+  }
+
+  &__question {
+    border: thin solid #dbdbdb;
+    padding: 1rem;
+  }
+
+  &__answers {
+    display: flex;
+  }
+
+  &__answer {
+    flex-basis: 50%;
+    border: thin solid #dbdbdb;
+    padding: 1rem;
+    cursor: pointer;
+
+    &:not(.tree__answer--selected):hover {
+      background: #eaeaea;
+    }
+
+    &--selected {
+      background: aliceblue;
+      cursor: default;
+    }
+  }
+}
