@@ -16,5 +16,25 @@
   </button>
 
   {# Nav Links  #}
+  {%- set localeMainMenu = app.mainMenu | getLocaleData -%}
+  <ul class="site-navigation__menu" id="nav-menu">
+    {% for item in localeMainMenu.items %}
+      <li class="site-navigation__item">
+        <a href="/{{ locale }}/{{ item.page.slug }}">
+          {{ item.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 
+  {# Language Toggle #}
+  <ul>
+    {% for siteLocale in meta.locales %}
+      <li class="site-navigation__item">
+        <a href="/{{ siteLocale }}/">
+          {{ siteLocale }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </nav>

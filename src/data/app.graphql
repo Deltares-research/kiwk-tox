@@ -1,0 +1,10 @@
+query App($locale: SiteLocale) {
+  mainMenu(locale: $locale) {
+    items {
+      name
+      page {
+        slug
+      }
+    }
+  }
+}
