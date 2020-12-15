@@ -13,7 +13,9 @@ $breakpoints: (
   xl: 1260px,
 );
 
-$container-max-width: 1200px;
+$max-width-large: 1200px;
+$max-width-medium: 1000px;
+$max-width-small: 800px;
 
 // Z-Index Stack
 //
@@ -25,59 +27,42 @@ $z-layers: (
 );
 
 // Colors
-//
-// Grayscale.
+$color-brand-purple: #2C2276;
+$color-brand-ochre: #FBBA00;
+$color-brand-blue: #009FE3;
+$color-brand-green: #00A79F;
 
-$gray-darkest: #373a3c;
-$gray-dark: #55595c;
-$gray: #818a91;
-$gray-light: #eceeef;
-$gray-lightest: #f7f7f9;
+$color-dark: #000;
+$color-light: #fff;
 
-// Brand Colors
+$color-grey: #D3D3D3;
+$color-grey-light: #F4F4F4;
 
-$brand-red: #fc6767;
+$color-success: #5AC12D;
+$color-warn: #E52F2F;
 
-// Color Mappings
-
-$bg-color: #fff;
-$text-color: $gray-darkest;
-$brand-color-primary: $brand-red;
-$brand-color-primary-offset: darken($brand-red, 6%);
+$color-text: $color-dark;
 
 // Typography
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-  'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-$font-family-serif: 'Times New Roman', Georgia, Times, serif;
-$font-family-monospace: Menlo, Monaco, Consolas, 'Andale Mono', 'Courier New',
-  monospace;
-$font-family-base: $font-family-sans-serif;
+$font-sans: 'Roboto-Regular', sans-serif;
+$font-sans-bold: 'Roboto-Medium', sans-serif;
+$font-serif: 'Times New Roman', Georgia, Times, serif;
+$font-base: $font-sans;
 
-$font-size-root: 100%;
-$font-size-base: 1rem;
+$font-size-root: 62.5%; /* this causes you to put pixels easily in rem - 24px = 2.4rem */
+$font-size-base: 1.6rem;
 $line-height: 1.625;
-
-// Animation
-//
-// Default easing curves, Transitions, etc
-
-$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
-$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
-$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
-$animation-curve-default: $animation-curve-fast-out-slow-in;
 
 // Misc Shared
 //
 // common shared styles
 
-$spacing-x: 2rem;
-$spacing-y: 2rem;
+$unit-xsmall: 10px;
+$unit-small: 20px;
+$unit-medium: 30px;
+$unit-large: 50px;
 
-$box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-$box-shadow-elevated: 0 6px 12px 0 rgba(0, 0, 0, 0.1);
-
-$border-radius: 0.25rem;
+$border-radius: 2px;
