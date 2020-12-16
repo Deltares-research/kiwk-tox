@@ -46,7 +46,7 @@ function revisionReplace() {
       // update references in files matching these patterns
       `${workingDir}/**/*.html`,
       `${workingDir}/site.webmanifest`,
-      // `${workingDir}/browserconfig.xml`,
+      `${workingDir}/browserconfig.xml`,
       `${workingDir}/sw.js`,
     ])
     .pipe(filter((file) => !revPattern.test(file.path))) // exclude revisioned files as their content must not change
