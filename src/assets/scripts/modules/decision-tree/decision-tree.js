@@ -1,7 +1,3 @@
-console.log('hi from decision tree ;)');
-
-// const $app = document.querySelector('#decision-tree-app');
-// console.log($app.dataset);
 const app = Vue.createApp({});
 
 const DecisionTree = {
