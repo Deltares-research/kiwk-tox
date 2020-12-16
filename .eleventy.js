@@ -39,7 +39,7 @@ module.exports = function (config) {
   /**
    * Returns a JSON stringified version of the value, safe for use as Vue prop
    *
-   * Output is NOT safe for inclusion in HTML os <script> tags
+   * Output is NOT safe for inclusion in HTML or <script> tags
    */
   config.addNunjucksFilter('vueData', function (value) {
     return JSON.stringify(value).replace(/</g, '\\u003c');
