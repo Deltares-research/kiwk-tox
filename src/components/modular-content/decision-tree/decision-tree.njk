@@ -11,6 +11,7 @@
     <div
       v-if="choices.includes(option.slug)"
       class="tree__branch"
+      :class="{ 'tree__branch--tip': option.isEndResult }"
     >
       <p
         v-if="option.content && option.content.length"
@@ -33,7 +34,6 @@
       </div>
     </div>
   </template>
-  <pre>{{ options }}</pre>
 {% endraw %}
 </script>
 

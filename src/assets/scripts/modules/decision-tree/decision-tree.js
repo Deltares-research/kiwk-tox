@@ -20,6 +20,7 @@ const DecisionTree = {
 
   methods: {
     addChoice(option, targetSlug) {
+      console.log(targetSlug);
       // If we already have a selection for this option,
       // we need to clear all selections after it
       if (option.selection) {
@@ -29,8 +30,13 @@ const DecisionTree = {
         }
         const index = this.choices.findIndex(slug => slug === option.slug);
         const leftArray = this.choices.slice(0, index + 1);
-        // const rightArray = this.choices.slice(index + 1);
+        const rightArray = this.choices.slice(index + 1);
+
+        // Jump back to new selection
         this.choices = leftArray;
+
+        // Clear the 'removed' choices
+        // @HERE!!
       }
 
       option.selection = targetSlug;
