@@ -16,7 +16,6 @@ const DecisionTree = {
 
   methods: {
     addChoice(option, targetSlug) {
-      console.log(targetSlug);
       // If we already have a selection for this option,
       // we need to clear all selections after it
       if (option.selection) {
@@ -32,7 +31,10 @@ const DecisionTree = {
         this.choices = leftArray;
 
         // Clear the 'removed' choices
-        // @HERE!!
+        rightArray.forEach(slug => {
+          const option = this.options.find(option => option.slug === slug);
+          option.selection = null;
+        });
       }
 
       option.selection = targetSlug;
