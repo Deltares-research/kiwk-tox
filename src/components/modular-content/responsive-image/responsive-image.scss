@@ -1,0 +1,33 @@
+.responsive-image {
+  position: relative;
+  margin-top: 24px;
+  margin-bottom: 64px;
+
+  @include mq(md) {
+    margin-top: 64px;
+  }
+
+  &__picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    // padding-left: 20px;
+    // padding-right: 20px;
+  }
+
+  &__figure-image {
+    width: 100%;
+  }
+
+  &__figure-caption {
+    position: absolute;
+    margin-top: 18px;
+    color: clr(gray-medium);
+  }
+
+  &__figure--rounded,
+  &__figure-image--rounded {
+    border-radius: $default-radius;
+  }
+}
