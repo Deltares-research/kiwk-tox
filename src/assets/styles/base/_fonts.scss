@@ -1,9 +1,17 @@
-// @font-face {
-//     font-family: 'Noe Display';
-//     font-style: normal;
-//     font-display: swap;
-//     font-weight: 400;
-//     src: local('Noe Display'), local('NoeDisplay-Regular'),
-//         url('/assets/fonts/noe-display-regular.woff2') format('woff2'),
-//         url('/assets/fonts/noe-display-regular.woff') format('woff');
-// }
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url('/fonts/Roboto-Regular.woff2') format('woff2'), url('/fonts/Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+  unicode-range: U+20-7E;
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url('/fonts/Roboto-Medium.woff2') format('woff2'), url('/fonts/Roboto-Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+  unicode-range: U+20-7E;
+}

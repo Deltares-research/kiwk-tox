@@ -8,27 +8,45 @@ h6 {
   line-height: 1.3;
 }
 
-h1 {
+// sizes
+.h1 {
+  font-size: 5rem;
+}
+
+.h2 {
+  font-size: 3rem;
+}
+
+.h3 {
   font-size: 2.5rem;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
 }
 
-h2 {
-  font-size: 2.125rem;
-  font-weight: 700;
+.body {
+  font-size: $font-size-base;
 }
 
-p {
-  margin: 0;
+.body-large {
+  font-size: 2rem;
 }
 
-.lead {
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1.4;
+.body-small {
+  font-size: 1.6rem;
+}
 
-  @include mq(md) {
-    font-size: 2rem;
-  }
+// types
+.font-sans {
+  font-family: $font-base;
+}
+
+.font-serif {
+  font-family: $font-serif;
+}
+
+// colors
+.font-dark {
+  color: $color-text;
+}
+
+.font-light {
+  color: $color-light;
 }
