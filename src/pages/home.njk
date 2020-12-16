@@ -5,6 +5,8 @@ pagination:
   size: 1
   alias: item
 permalink: /{{ item.locale }}/
+eleventyComputed:
+  locale: "{{ item.locale }}"
 ---
 
 <div class="container">

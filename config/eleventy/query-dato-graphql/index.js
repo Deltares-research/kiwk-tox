@@ -3,6 +3,7 @@ const {
   addLocaleToAllDataRecords,
   deepFlattenLocaleRecords,
 } = require('./locale-helpers');
+const { LOCALES } = require('../../constants');
 require('dotenv-safe').config();
 
 // const isDevelopment = (process.env.ELEVENTY_ENV === 'development');
@@ -13,7 +14,6 @@ require('dotenv-safe').config();
 const ENDPOINT = 'https://graphql.datocms.com/';
 const USE_CACHE = true;
 const CACHE = {};
-const LOCALES = ['nl', 'en'];
 
 const requestToMessage = ({ query }) => {
   const queryName =
@@ -23,17 +23,14 @@ const requestToMessage = ({ query }) => {
 
 module.exports = ({ query }) => {
   const cacheKey = JSON.stringify({ query });
+  const cacheReadableName = requestToMessage({ query });
 
   if (USE_CACHE && CACHE[cacheKey]) {
-    console.info(
-      `[DATA CACHE] Using cached data for ${requestToMessage({ query })}`
-    );
+    console.info(`[DATA CACHE] Using cached data for ${cacheReadableName}`);
     return CACHE[cacheKey];
   }
 
-  console.info(
-    `[DATA CACHE] Fetching fresh data for ${requestToMessage({ query })}`
-  );
+  console.info(`[DATA CACHE] Fetching fresh data for ${cacheReadableName}`);
 
   const localePromises = LOCALES.map(locale =>
     fetch(ENDPOINT, {
@@ -65,5 +62,9 @@ module.exports = ({ query }) => {
   CACHE[cacheKey] = Promise.all(localePromises)
     .then(nestedArray => nestedArray.flat())
     .then(deepFlattenLocaleRecords);
+  // .then(x => {
+  //   if (cacheReadableName === '"App"') console.log(cacheReadableName, x);
+  //   return x;
+  // });
   return CACHE[cacheKey];
 };

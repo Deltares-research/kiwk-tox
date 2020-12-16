@@ -5,6 +5,8 @@ pagination:
   size: 1
   alias: item
 permalink: /{{ item.locale }}/{{ item.slug }}/
+eleventyComputed:
+  locale: "{{ item.locale }}"
 ---
 {# {% from "modular-content/index.njk" import modularContent %} #}
 
