@@ -64,7 +64,7 @@ module.exports = ({ query }) => {
     .then(deepFlattenLocaleRecords)
     .then(x => {
       // if (cacheReadableName === '"App"')
-      console.log(cacheReadableName, x);
+      // console.log(cacheReadableName, x);
       return x;
     });
   return CACHE[cacheKey];

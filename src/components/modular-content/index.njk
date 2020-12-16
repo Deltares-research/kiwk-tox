@@ -1,0 +1,22 @@
+{# components A-Z #}
+{% from "modular-content/rich-text/rich-text.njk" import richText %}
+{% from "modular-content/decision-tree/decision-tree.njk" import decisionTree %}
+
+{% set componentByType = {
+  rich_text: richText,
+  decision_tree_modular_block: decisionTree
+} %}
+
+{% macro modularContent(items, context) %}
+<div class="modular-content">
+  {% for item in items %}
+    {% set itemType = item._modelApiKey %}
+    {% set component = componentByType[itemType] %}
+    {% if component %}
+      {{ component(item, context) }}
+    {% else %}
+      <script>console.warn('Unknown item type "{{ itemType }}"');</script>
+    {% endif %}
+  {% endfor %}
+</div>
+{% endmacro %}
