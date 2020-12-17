@@ -1,11 +1,16 @@
 .tree {
   &__branch {
     margin-bottom: 1rem;
+
+    &--tip {
+      background-color: greenyellow;
+    }
   }
 
   &__question {
     border: thin solid #dbdbdb;
     padding: 1rem;
+    margin: 0;
   }
 
   &__answers {
@@ -16,6 +21,7 @@
     flex-basis: 50%;
     border: thin solid #dbdbdb;
     padding: 1rem;
+    margin: 0;
     cursor: pointer;
 
     &:not(.tree__answer--selected):hover {

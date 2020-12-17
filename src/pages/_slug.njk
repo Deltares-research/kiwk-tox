@@ -8,9 +8,11 @@ permalink: /{{ item.locale }}/{{ item.slug }}/
 eleventyComputed:
   locale: "{{ item.locale }}"
 ---
-{# {% from "modular-content/index.njk" import modularContent %} #}
+{% from "modular-content/index.njk" import modularContent %}
 
 <main>
-  {{ item.title }}
-  {# {{ modularContent(item.body, { data: { allArticles: allArticles } }) }} #}
+  <div class="container">
+    <h2>{{ item.title }}</h2>
+  </div>
+  {{ modularContent(item.body) }}
 </main>

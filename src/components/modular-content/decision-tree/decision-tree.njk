@@ -1,9 +1,17 @@
+{% macro decisionTree(blockData) %}
+<div class="container">
+  <div id="decision-tree-app">
+    <decision-tree :tree-data="{{ blockData | vueData }}"></decision-tree>
+  </div>
+</div>
+
+<script type="text/html" id="decision-tree-template">
 {% raw %}
-<div id="decision-tree-app">
   <template v-for="option in options">
     <div
       v-if="choices.includes(option.slug)"
       class="tree__branch"
+      :class="{ 'tree__branch--tip': option.isEndResult }"
     >
       <p
         v-if="option.content && option.content.length"
@@ -18,16 +26,17 @@
         <p
           v-for="choice in option.choices"
           class="tree__answer"
-          :class="{ 'tree__answer--selected': option.selection === choice.pointsToSlug }"
-          @click="addChoice(option, choice.pointsToSlug)"
+          :class="{ 'tree__answer--selected': option.selection === choice.targetSlug }"
+          @click="addChoice(option, choice.targetSlug)"
         >
           {{ choice.content }}
         </p>
       </div>
     </div>
   </template>
-</div>
 {% endraw %}
+</script>
 
 <script src="https://unpkg.com/vue@next"></script>
 <script src="{{ '/assets/scripts/decision-tree.js' | url }}"></script>
+{% endmacro %}

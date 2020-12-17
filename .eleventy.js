@@ -1,3 +1,4 @@
+const nunjucks = require('nunjucks');
 const filters = require('./config/eleventy/filters.js');
 const transforms = require('./config/eleventy/transforms.js');
 const shortcodes = require('./config/eleventy/shortcodes.js');
@@ -18,6 +19,30 @@ module.exports = function (config) {
   // Shortcodes
   Object.keys(shortcodes).forEach(shortcodeName => {
     config.addShortcode(shortcodeName, shortcodes[shortcodeName]);
+  });
+
+  /**
+   * Returns a JSON stringified version of the value, safe for inclusion in an
+   * inline <script> tag.
+   *
+   * Output is NOT safe for inclusion in HTML! If that's what you need, use the
+   * built-in 'dump' filter instead.
+   */
+  config.addNunjucksFilter('json', function (value) {
+    if (value instanceof nunjucks.runtime.SafeString) {
+      value = value.toString();
+    }
+    const jsonString = JSON.stringify(value).replace(/</g, '\\u003c');
+    return nunjucks.runtime.markSafe(jsonString);
+  });
+
+  /**
+   * Returns a JSON stringified version of the value, safe for use as Vue prop
+   *
+   * Output is NOT safe for inclusion in HTML or <script> tags
+   */
+  config.addNunjucksFilter('vueData', function (value) {
+    return JSON.stringify(value).replace(/</g, '\\u003c');
   });
 
   // Icon Sprite

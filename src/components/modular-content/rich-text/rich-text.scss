@@ -1,0 +1,25 @@
+.rich-text {
+  a {
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin-bottom: 26px;
+  }
+
+  ul {
+    display: block;
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 18px;
+
+    li {
+      padding-left: 10px;
+    }
+  }
+}
