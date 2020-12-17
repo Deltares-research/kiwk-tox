@@ -44,3 +44,12 @@ body {
 .container--width-small {
   max-width: $max-width-small;
 }
+
+.container--width-xsmall {
+  max-width: $max-width-xsmall;
+}
+
+.section {
+  padding-right: $unit-small;
+  padding-left: $unit-small;
+}

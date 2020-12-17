@@ -13,9 +13,12 @@ $breakpoints: (
   xl: 1260px,
 );
 
+$navigation-breakpoint: 1000px;
+
 $max-width-large: 1200px;
 $max-width-medium: 1000px;
 $max-width-small: 800px;
+$max-width-xsmall: 400px;
 
 // Z-Index Stack
 //
@@ -53,7 +56,7 @@ $font-serif: 'Times New Roman', Georgia, Times, serif;
 $font-base: $font-sans;
 
 $font-size-root: 62.5%; /* this causes you to put pixels easily in rem - 24px = 2.4rem */
-$font-size-base: 1.6rem;
+$font-size-base: 1.8rem;
 $line-height: 1.625;
 
 // Misc Shared
@@ -66,3 +69,6 @@ $unit-medium: 30px;
 $unit-large: 50px;
 
 $border-radius: 2px;
+
+$height-header-mobile: 50px;
+$height-header-desktop: 70px;

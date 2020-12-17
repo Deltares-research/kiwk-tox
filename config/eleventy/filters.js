@@ -29,6 +29,13 @@ module.exports = {
 
   getLocaleData(array) {
     const { locale } = this.ctx;
+
+    if(!array || !array.length || !locale) {
+      console.warn('getLocaleData: array is: ', array)
+      console.warn('getLocaleData: locale is: ', locale)
+      return
+    }
+
     return array.find(item => item.locale === locale);
   },
 };

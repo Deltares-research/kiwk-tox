@@ -1,0 +1,149 @@
+.mobile-navigation {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $color-brand-purple;
+
+  @media (min-width: $navigation-breakpoint) {
+    display: none;
+  }
+
+  transition: transform .2s ease-in-out;
+  transform: translateX(-100%);
+
+  &:target,
+  &.toggle--active {
+    transform: translateX(0);
+  }
+}
+
+.mobile-navigation__items {
+  padding: $unit-small;
+  list-style: none;
+}
+
+.mobile-navigation__item + .mobile-navigation__item {
+  border-top: 1px solid rgba($color-light, .1);
+}
+
+.mobile-navigation__item a {
+  position: relative;
+  display: block;
+  padding-top: .6em;
+  padding-bottom: .55em;
+
+  text-decoration: none;
+}
+
+.mobile-navigation__item--active a {
+  font-family: $font-sans-bold;
+}
+
+.mobile-navigation__item a:before {
+  content: '';
+  position: absolute;
+  top: calc(1.4em - #{$unit-xsmall * .5});
+  left: -$unit-small;
+  width: $unit-xsmall;
+  height: $unit-xsmall;
+
+  border-radius: 50%;
+  background-color: $color-brand-ochre;
+
+  transform-origin: 100% 50%;
+  transform: scale(0);
+  transition: transform .1s;
+}
+
+.mobile-navigation__item a:hover:before,
+.mobile-navigation__item--active a:before {
+  transform: scale(.5);
+}
+
+// ====================================== toggle button
+$navigation-toggle-size: 60px;
+$burger-width: $navigation-toggle-size * .5;
+$burger-height: 4px;
+
+.mobile-navigation__toggle {
+  position: fixed;
+  z-index: 60;
+  right: $unit-small;
+  bottom: $unit-small;
+  width: $navigation-toggle-size;
+  height: $navigation-toggle-size;
+
+  background-color: $color-brand-ochre;
+  border-radius: 50%;
+
+  @media (min-width: $navigation-breakpoint) {
+    display: none;
+  }
+
+  box-shadow: 0 0 0 0 $color-brand-ochre;
+  transition: box-shadow .15s;
+
+  &:hover {
+    box-shadow: 0 0 0 4px $color-brand-ochre;
+  }
+}
+
+.mobile-navigation__toggle-close {
+  visibility: hidden;
+  pointer-events: none;
+
+  .mobile-navigation:target ~ &,
+  .mobile-navigation.toggle--active ~ & {
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.mobile-navigation__toggle-open {
+  .mobile-navigation:target ~ &,
+  .mobile-navigation.toggle--active ~ & {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.mobile-navigation__toggle:before,
+.mobile-navigation__toggle:after {
+  content: '';
+  position: absolute;
+  top: calc(50% - #{$burger-height * .5});
+  left: calc(50% - #{$burger-width * .5});
+  width: $burger-width;
+  height: $burger-height;
+  background-color: $color-dark;
+}
+
+.mobile-navigation__toggle:before {
+
+  box-shadow:
+    0 $burger-height * -2 0 $color-dark,
+    0 $burger-height * 2 0 $color-dark;
+  transform: rotate(0);
+  transition: transform .15s, box-shadow .15s;
+
+  .mobile-navigation:target ~ &,
+  .mobile-navigation.toggle--active ~ & {
+    box-shadow:
+      0 0 0 rgba($color-dark, 0),
+      0 0 0 rgba($color-dark, 0);
+    transform: rotate(45deg);
+  }
+}
+
+.mobile-navigation__toggle:after {
+  transform: scaleY(0) rotate(90deg);
+  transition: transform .15s;
+
+  .mobile-navigation:target ~ &,
+  .mobile-navigation.toggle--active ~ & {
+    transform: scaleY(1) rotate(-45deg);
+  }
+}
