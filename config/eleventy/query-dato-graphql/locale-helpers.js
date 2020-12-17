@@ -42,14 +42,9 @@ module.exports = {
               !isNil(id) && id === item.id && locale !== item.locale
           );
           if (!alts.length) return item;
-          // console.log('alts', alts);
           return alts.reduce((accObj, altObj) => {
-            // console.log('acc', accObj);
-            // console.log('alt', altObj);
             const languageAlts = accObj.languageAlts || {};
             const { locale, slug } = altObj;
-            // console.log('languageAlts', languageAlts);
-            // console.log('localeslug', locale + slug);
             return {
               ...accObj,
               languageAlts: { ...languageAlts, [locale]: slug },
