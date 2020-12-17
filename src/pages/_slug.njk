@@ -7,6 +7,7 @@ pagination:
 permalink: /{{ item.locale }}/{{ item.slug }}/
 eleventyComputed:
   locale: "{{ item.locale }}"
+  languageAlts: "{{ item.languageAlts | json }}"
 ---
 {% from "modular-content/index.njk" import modularContent %}
 

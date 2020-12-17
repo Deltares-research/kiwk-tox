@@ -30,8 +30,9 @@
   {# Language Toggle #}
   <ul>
     {% for siteLocale in meta.locales %}
+      {%- set altSlug = languageAlts | inferAltSlug(siteLocale) -%}
       <li class="site-navigation__item">
-        <a href="/{{ siteLocale }}/">
+        <a href="{{ altSlug }}">
           {{ siteLocale }}
         </a>
       </li>

@@ -41,4 +41,12 @@ module.exports = {
     const { locale } = this.ctx;
     return array.find(item => item.locale === locale);
   },
+
+  inferAltSlug(languageAlts, altLocale) {
+    const baseString = `/${altLocale}/`;
+    if (!languageAlts) return baseString;
+    const dict = JSON.parse(languageAlts);
+    if (!dict[altLocale]) return baseString;
+    return `${baseString}${dict[altLocale]}/`;
+  },
 };
