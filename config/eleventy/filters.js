@@ -1,4 +1,5 @@
 const { DateTime } = require('luxon');
+const { stringify } = require('query-string');
 
 module.exports = {
   dateToFormat(date, format) {
@@ -21,6 +22,15 @@ module.exports = {
       );
       return url;
     }
+  },
+
+  imageUrl(imagePath, params) {
+    const defaults = {
+      auto: ['compress', 'quality'],
+      fm: 'jpg',
+      w: 100,
+    };
+    return `${imagePath}?${stringify(Object.assign({}, defaults, params))}`;
   },
 
   stripSlashes(str) {

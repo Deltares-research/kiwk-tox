@@ -1,10 +1,14 @@
 {# components A-Z #}
 {% from "modular-content/rich-text/rich-text.njk" import richText %}
+{% from "modular-content/responsive-image/responsive-image.njk" import responsiveImage %}
 {% from "modular-content/decision-tree/decision-tree.njk" import decisionTree %}
+{% from "modular-content/iframe-embed/iframe-embed.njk" import iframeEmbed %}
 
 {% set componentByType = {
   rich_text: richText,
-  decision_tree_modular_block: decisionTree
+  image: responsiveImage,
+  decision_tree_modular_block: decisionTree,
+  external_tool_embed: iframeEmbed
 } %}
 
 {% macro modularContent(items, context) %}

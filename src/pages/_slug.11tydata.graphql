@@ -14,6 +14,19 @@ query PageSlug($locale: SiteLocale) {
         _modelApiKey
         richText
       }
+      ... on ImageRecord {
+        _modelApiKey
+        image {
+          title
+          url
+          alt
+          responsiveImage {
+            base64
+            bgColor
+            aspectRatio
+          }
+        }
+      }
       ... on DecisionTreeModularBlockRecord {
         _modelApiKey
         decisionTree {
@@ -29,6 +42,10 @@ query PageSlug($locale: SiteLocale) {
             }
           }
         }
+      }
+      ... on ExternalToolEmbedRecord {
+        _modelApiKey
+        targetUrl
       }
     }
   }
