@@ -30,10 +30,15 @@
   {# Language Toggle #}
   <ul>
     {% for siteLocale in meta.locales %}
+      {%- set altSlug = languageAlts | inferAltSlug(siteLocale) -%}
       <li class="site-navigation__item">
-        <a href="/{{ siteLocale }}/">
+        {% if siteLocale == locale %}
           {{ siteLocale }}
-        </a>
+        {% else %}
+          <a href="{{ altSlug }}">
+            {{ siteLocale }}
+          </a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

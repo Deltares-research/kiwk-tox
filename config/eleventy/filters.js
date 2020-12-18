@@ -41,4 +41,15 @@ module.exports = {
     const { locale } = this.ctx;
     return array.find(item => item.locale === locale);
   },
+
+  inferAltSlug(languages, locale) {
+    const baseString = `/${locale}/`;
+    if (!languages) return baseString;
+
+    const languageDictionary = JSON.parse(languages);
+    const slug = languageDictionary[locale];
+    if (!slug) return baseString;
+
+    return `${baseString}${slug}/`;
+  },
 };
