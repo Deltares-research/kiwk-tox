@@ -42,11 +42,14 @@ module.exports = {
     return array.find(item => item.locale === locale);
   },
 
-  inferAltSlug(languageAlts, altLocale) {
-    const baseString = `/${altLocale}/`;
-    if (!languageAlts) return baseString;
-    const dict = JSON.parse(languageAlts);
-    if (!dict[altLocale]) return baseString;
-    return `${baseString}${dict[altLocale]}/`;
+  inferAltSlug(languages, locale) {
+    const baseString = `/${locale}/`;
+    if (!languages) return baseString;
+
+    const languageDictionary = JSON.parse(languages);
+    const slug = languageDictionary[locale];
+    if (!slug) return baseString;
+
+    return `${baseString}${slug}/`;
   },
 };
