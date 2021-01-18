@@ -9,6 +9,8 @@ eleventyComputed:
   locale: "{{ item.locale }}"
 ---
 
-<div class="container">
-  <h1>{{ item.title }}</h1>
-</div>
+{% from "../components/hero/hero.njk" import hero %}
+{% from "modular-content/index.njk" import modularContent %}
+
+{{ hero(title=item.title, body=item.intro) }}
+{{ modularContent(item.body) }}

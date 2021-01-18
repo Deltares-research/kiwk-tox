@@ -1,0 +1,29 @@
+<svg viewBox="0 0 1920 430" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="Group_53" transform="translate(0 -5173)">
+    <linearGradient id="Rectangle_4_1_" gradientUnits="userSpaceOnUse" x1="1.2474" y1="5602.3862" x2="1.0749" y2="5607.9775" gradientTransform="matrix(1920 0 0 -426 -1380 2392400.5)">
+      <stop  offset="0" style="stop-color:#2C2276"/>
+      <stop  offset="1" style="stop-color:#32D338"/>
+    </linearGradient>
+    <rect fill="url(#Rectangle_4_1_)" y="5173" width="1920" height="430"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="697.087" cy="5308.8" r="6.56"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="725.346" cy="5256.318" r="2.523"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="681.948" cy="5311.827" r="3.532"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="696.582" cy="5341.601" r="2.019"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1071.524" cy="5177.595" r="9.588"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1518.628" cy="5363.3" r="9.588"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1566.063" cy="5300.726" r="11.607"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1559.503" cy="5343.619" r="5.046"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1487.34" cy="5246.225" r="2.523"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1514.591" cy="5393.578" r="2.523"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1580.193" cy="5282.559" r="2.523"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1501.975" cy="5369.86" r="4.037"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1548.906" cy="5456.152" r="2.523"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1081.112" cy="5193.239" r="5.046"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="1009.959" cy="5182.642" r="2.523"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="248.974" cy="5387.522" r="6.56"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="242.413" cy="5372.888" r="2.019"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="233.33" cy="5376.925" r="3.028"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="277.738" cy="5290.128" r="2.019"/>
+    <circle style="opacity: 0.168" fill="#FFFFFF" cx="247.46" cy="5408.212" r="2.019"/>
+  </g>
+</svg>

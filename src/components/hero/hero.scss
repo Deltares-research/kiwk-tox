@@ -1,0 +1,72 @@
+.hero {
+  position: relative;
+  z-index: 2;
+
+  padding-right: $unit-xsmall;
+  padding-left: $unit-xsmall;
+  background-color: $color-brand-purple;
+  background-image: url('/assets/images/design/hero-background.svg');
+  background-size: cover;
+}
+
+.hero--primary {
+  height: 300px;
+  overflow: visible;
+
+  @media (min-width: 800px) {
+    height: 430px;
+  }
+}
+
+.hero--secondary {
+  min-height: 180px;
+  display: flex;
+
+  @media (min-width: 600px) {
+    min-height: 220px;
+  }
+
+  @media (min-width: 800px) {
+    min-height: 285px;
+  }
+}
+
+.hero__intro {
+  margin-top: 80px;
+  padding: $unit-small;
+  background-color: $color-brand-purple;
+
+  @media (min-width: 600px) {
+    margin-top: 100px;
+    padding: $unit-medium;
+  }
+
+  @media (min-width: 800px) {
+    margin-top: 190px;
+    padding: $unit-large;
+  }
+}
+
+.hero--secondary .hero__inner {
+  width: 100%;
+  flex-grow: 2;
+
+  padding-top: $unit-small;
+  padding-bottom: $unit-small;
+  padding-right: $unit-xsmall;
+  padding-left: $unit-xsmall;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (min-width: 600px) {
+    padding-top: $unit-medium;
+    padding-bottom: $unit-medium;
+  }
+
+  @media (min-width: 800px) {
+    padding-top: $unit-large;
+    padding-bottom: $unit-large;
+  }
+}
