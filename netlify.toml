@@ -45,5 +45,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/nl/404/"
+  to = "/404/"
   status = 404
