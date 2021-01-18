@@ -4,7 +4,8 @@
     {%- set localeMainMenu = app.mainMenu | getLocaleData -%}
     <nav class="footer__menu">
       <a href="/{{ locale }}/" class="footer__logo">
-        Home
+        <span class="sr-only">KIWK TOX</span>
+        {% include "../logo/logo.njk" %}
       </a>
       <ol class="footer__menu-items">
         {% for item in localeMainMenu.items %}
