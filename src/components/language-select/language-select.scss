@@ -1,0 +1,41 @@
+$langauge-select-size: 30px;
+
+.language-select {
+  width: $langauge-select-size * 2;
+  height: $langauge-select-size;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px $color-brand-purple;
+}
+
+.language-select__options {
+  list-style: none;
+  display: flex;
+}
+
+.language-select__option a {
+  display: flex;
+  justify-content: center;
+  width: $langauge-select-size;
+  height: $langauge-select-size;
+  padding-top: 0.1em;
+
+  color: $color-brand-purple;
+  text-decoration: none;
+  transition: background-color .1s linear, color .1s linear;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: $color-brand-ochre;
+  }
+}
+
+html[lang="en"] .language-select__option--en a,
+html[lang="nl"] .language-select__option--nl a {
+  background-color: $color-brand-purple;
+  pointer-events: none;
+  cursor: default;
+
+  color: $color-light;
+}

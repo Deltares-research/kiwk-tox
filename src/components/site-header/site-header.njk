@@ -1,12 +1,21 @@
+{% from "../mobile-navigation/mobile-navigation.njk" import mobileNavigation %}
+{% from "../desktop-navigation/desktop-navigation.njk" import desktopNavigation %}
+
+{%- set localeMainMenu = (app.mainMenu | getLocaleData).items -%}
+{%- set strippedUrl = page.url | stripSlashes -%}
+
 <header class="header" role="banner">
-  <div class="header__inner container">
-    <div class="header__left">
-      <a href="/{{ locale }}/">
-        KIWK TOX
-      </a>
-    </div>
-    <div class="header__right">
-      {% include "site-navigation/site-navigation.njk" %}
-    </div>
+  <div class="header__inner container section">
+
+    <a class="header__home-link" href="/{{ locale }}/">
+      <span class="sr-only">KIWK TOX</span>
+      {% include "../logo/logo.njk" %}
+    </a>
+
+    {% if localeMainMenu %}
+      {{ mobileNavigation(localeMainMenu, strippedUrl, locale) }}
+      {{ desktopNavigation(localeMainMenu, strippedUrl, locale) }}
+    {% endif %}
+    {% include "../language-select/language-select.njk" %}
   </div>
 </header>

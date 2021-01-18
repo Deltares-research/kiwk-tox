@@ -2,4 +2,6 @@
 import 'focus-visible';
 
 // Internal Modules
-import './components/site-navigation/site-navigation';
+import initToggle from './components/toggle/toggle';
+
+initToggle();

@@ -1,0 +1,15 @@
+{% macro desktopNavigation(items=false, strippedUrl=false, locale=false) %}
+
+  <nav class="desktop-navigation">
+    <ol class="desktop-navigation__items">
+      {% for item in items %}
+        {%- set isCurrent = (locale + '/' + item.page.slug == strippedUrl) -%}
+        <li class="desktop-navigation__item{% if isCurrent %} desktop-navigation__item--active{% endif %}">
+          <a href="/{{ locale }}/{{ item.page.slug }}">
+            {{ item.name }}
+          </a>
+        </li>
+      {% endfor %}
+    <ol>
+  </nav>
+{% endmacro %}
