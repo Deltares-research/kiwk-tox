@@ -1,0 +1,20 @@
+{% if meta.locales %}
+  <nav class="language-select">
+    <ul class="language-select__options">
+      {% for siteLocale in meta.locales %}
+        {%- set altSlug = languageAlts | inferAltSlug(siteLocale) -%}
+        <li class="language-select__option language-select__option--{{ siteLocale }} body-small">
+          {% if siteLocale == locale %}
+            <a href="/{{ siteLocale }}/">
+              {{ siteLocale }}
+            </a>
+          {% else %}
+            <a href="{{ altSlug }}">
+              {{ siteLocale }}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

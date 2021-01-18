@@ -1,0 +1,33 @@
+{% macro mobileNavigation(items=false, strippedUrl=false, locale=false) %}
+  <nav
+    class="mobile-navigation"
+    id="mobile-navigation">
+    <ol class="mobile-navigation__items container container--width-xsmall">
+      {% for item in items %}
+        {%- set isCurrent = (locale + '/' + item.page.slug == strippedUrl) -%}
+        <li class="mobile-navigation__item{% if isCurrent %} mobile-navigation__item--active{% endif %}">
+          <a
+            class="font-light body-large"
+            href="/{{ locale }}/{{ item.page.slug }}">
+            {{ item.name }}
+          </a>
+        </li>
+      {% endfor %}
+    <ol>
+  </nav>
+
+  <a
+    href="#mobile-navigation"
+    class="mobile-navigation__toggle mobile-navigation__toggle-open"
+    data-toggle data-toggle-id="mobile-navigation"
+  >
+    <span class="sr-only">Open navigation</span>
+  </a>
+  <a
+    href="#"
+    class="mobile-navigation__toggle mobile-navigation__toggle-close"
+    data-toggle data-toggle-id="mobile-navigation"
+  >
+    <span class="sr-only">Close navigation</span>
+  </a>
+{% endmacro %}

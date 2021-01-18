@@ -1,0 +1,16 @@
+{% macro hero(title, body, level = 'primary') %}
+  <article class="hero hero--{{ level }}">
+    <div class="container hero__inner">
+      {%if level === 'primary' %}
+        <div class="hero__intro">
+          <h1 class="h1 font-light">{{ title }}</h1>
+          <div class="body-large font-light">{{ body | safe }}</div>
+        </div>
+      {% endif %}
+
+      {%if level === 'secondary' %}
+        <h1 class="h1 font-light">{{ title }}</h1>
+      {% endif %}
+    </div>
+  </article>
+{% endmacro %}

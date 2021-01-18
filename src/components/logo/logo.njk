@@ -1,0 +1,7 @@
+{% set logoPath = '/assets/images/logo/kiwk-logo.' %}
+
+<picture>
+  <source type="image/webp" srcset="{{ logoPath + 'webp' }}" />
+  <source type="image/avif" srcset="{{ logoPath + 'avif' }}" />
+  <img class="logo" src="{{ logoPath + 'jpg' }}" alt="Logo KIWK-TOX">
+</picture>

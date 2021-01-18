@@ -13,14 +13,16 @@
 
 {% macro modularContent(items, context) %}
 <div class="modular-content">
-  {% for item in items %}
-    {% set itemType = item._modelApiKey %}
-    {% set component = componentByType[itemType] %}
-    {% if component %}
-      {{ component(item, context) }}
-    {% else %}
-      <script>console.warn('Unknown item type "{{ itemType }}"');</script>
-    {% endif %}
-  {% endfor %}
+  <div class="container modular-content__inner">
+    {% for item in items %}
+      {% set itemType = item._modelApiKey %}
+      {% set component = componentByType[itemType] %}
+      {% if component %}
+        {{ component(item, context) }}
+      {% else %}
+        <script>console.warn('Unknown item type "{{ itemType }}"');</script>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
 {% endmacro %}
