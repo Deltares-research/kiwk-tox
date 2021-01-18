@@ -22,7 +22,28 @@
       max-age=31536000,
       immutable'''
 
+# For when we do English language too
+# [[redirects]]
+#   from = "/"
+#   to = "/en/"
+#   condition = {Language = ["en"]}
+
 [[redirects]]
-  from = "*"
-  to = "/404"
+  from = "/"
+  to = "/nl/"
+
+# For when we do English language too
+# [[redirects]]
+#   from = "/nl/*"
+#   to = "/nl/404"
+#   status = 404
+
+# [[redirects]]
+#   from = "/en/*"
+#   to = "/en/404"
+#   status = 404
+
+[[redirects]]
+  from = "/*"
+  to = "/nl/404"
   status = 404
