@@ -70,6 +70,19 @@ module.exports = function (config) {
     async query => await queryDatoGraphQL({ query })
   );
 
+  config.setBrowserSyncConfig({
+    callbacks: {
+      ready(err, bs) {
+        bs.addMiddleware('/', (req, res) => {
+          res.writeHead(302, {
+            location: '/nl/'
+          });
+          res.end('redirecting');
+        });
+      },
+    },
+  });
+
   // Base Config
   return {
     dir: {
