@@ -1,8 +1,8 @@
-const { mapObjIndexed } = require('ramda');
+const { isNil, map, mapObjIndexed } = require('ramda');
 
 module.exports = {
   addLocaleToAllDataRecords: locale => data =>
-    mapObjIndexed(value => {
+    map(value => {
       // For multiple records, add locale to each record
       if (Array.isArray(value)) {
         return value.map(dataObj => ({
@@ -31,5 +31,26 @@ module.exports = {
           }
         }, currObj),
       {}
+    ),
+
+  addAlternativeLanguages: obj =>
+    map(
+      arr =>
+        arr.map((item, index, itemArr) => {
+          const alts = itemArr.filter(
+            ({ id, locale }) =>
+              !isNil(id) && id === item.id && locale !== item.locale
+          );
+          if (!alts.length) return item;
+          return alts.reduce((accObj, altObj) => {
+            const languageAlts = accObj.languageAlts || {};
+            const { locale, slug } = altObj;
+            return {
+              ...accObj,
+              languageAlts: { ...languageAlts, [locale]: slug },
+            };
+          }, item);
+        }),
+      obj
     ),
 };

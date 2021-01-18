@@ -1,5 +1,6 @@
 query PageSlug($locale: SiteLocale) {
   allPages(locale: $locale) {
+    id
     title
     slug
     seoMeta {

@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const {
   addLocaleToAllDataRecords,
   deepFlattenLocaleRecords,
+  addAlternativeLanguages,
 } = require('./locale-helpers');
 const { LOCALES } = require('../../constants');
 require('dotenv-safe').config();
@@ -61,6 +62,7 @@ module.exports = ({ query }) => {
 
   CACHE[cacheKey] = Promise.all(localePromises)
     .then(nestedArray => nestedArray.flat())
-    .then(deepFlattenLocaleRecords);
+    .then(deepFlattenLocaleRecords)
+    .then(addAlternativeLanguages);
   return CACHE[cacheKey];
 };
