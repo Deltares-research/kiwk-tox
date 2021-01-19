@@ -1,14 +1,6 @@
-const app = Vue.createApp({});
+const treeData = JSON.parse(document.querySelector('#decision-tree-data').innerText);
 
-const DecisionTree = {
-  template: '#decision-tree-template',
-
-  props: {
-    treeData: {
-      required: true,
-    },
-  },
-
+Vue.createApp({
   data: () => ({
     options: [],
     choices: [],
@@ -43,11 +35,7 @@ const DecisionTree = {
   },
 
   created() {
-    this.options = this.treeData.decisionTree.branches;
+    this.options = treeData.decisionTree.branches;
     this.choices = [this.options[0].slug];
   },
-};
-
-app.component('decision-tree', DecisionTree);
-
-app.mount('#decision-tree-app');
+}).mount('#decision-tree-app');

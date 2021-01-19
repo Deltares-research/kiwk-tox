@@ -1,42 +1,39 @@
 {% macro decisionTree(blockData) %}
 <div class="container">
   <div id="decision-tree-app">
-    <decision-tree :tree-data="{{ blockData | vueData }}"></decision-tree>
+    {% raw %}
+      <template v-for="option in options">
+        <div
+          v-if="choices.includes(option.slug)"
+          class="tree__branch"
+          :class="{ 'tree__branch--tip': option.isEndResult }"
+        >
+          <p
+            v-if="option.content && option.content.length"
+            class="tree__question"
+          >
+            {{ option.content }}
+          </p>
+          <div
+            v-if="option.choices && option.choices.length"
+            class="tree__answers"
+          >
+            <p
+              v-for="choice in option.choices"
+              class="tree__answer"
+              :class="{ 'tree__answer--selected': option.selection === choice.targetSlug }"
+              @click="addChoice(option, choice.targetSlug)"
+            >
+              {{ choice.content }}
+            </p>
+          </div>
+        </div>
+      </template>
+    {% endraw %}
   </div>
 </div>
 
-<script type="text/html" id="decision-tree-template">
-{% raw %}
-  <template v-for="option in options">
-    <div
-      v-if="choices.includes(option.slug)"
-      class="tree__branch"
-      :class="{ 'tree__branch--tip': option.isEndResult }"
-    >
-      <p
-        v-if="option.content && option.content.length"
-        class="tree__question"
-      >
-        {{ option.content }}
-      </p>
-      <div
-        v-if="option.choices && option.choices.length"
-        class="tree__answers"
-      >
-        <p
-          v-for="choice in option.choices"
-          class="tree__answer"
-          :class="{ 'tree__answer--selected': option.selection === choice.targetSlug }"
-          @click="addChoice(option, choice.targetSlug)"
-        >
-          {{ choice.content }}
-        </p>
-      </div>
-    </div>
-  </template>
-{% endraw %}
-</script>
-
 <script src="https://unpkg.com/vue@next"></script>
+<script id="decision-tree-data" type="text/x-data">{{ blockData | json }}</script>
 <script src="{{ '/assets/scripts/decision-tree.js' | url }}"></script>
 {% endmacro %}

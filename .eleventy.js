@@ -36,15 +36,6 @@ module.exports = function (config) {
     return nunjucks.runtime.markSafe(jsonString);
   });
 
-  /**
-   * Returns a JSON stringified version of the value, safe for use as Vue prop
-   *
-   * Output is NOT safe for inclusion in HTML or <script> tags
-   */
-  config.addNunjucksFilter('vueData', function (value) {
-    return JSON.stringify(value).replace(/</g, '\\u003c');
-  });
-
   // Icon Sprite
   config.addNunjucksAsyncShortcode('iconsprite', iconsprite);
 
