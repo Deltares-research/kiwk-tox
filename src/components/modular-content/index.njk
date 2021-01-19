@@ -4,13 +4,15 @@
 {% from "modular-content/decision-tree/decision-tree.njk" import decisionTree %}
 {% from "modular-content/iframe-embed/iframe-embed.njk" import iframeEmbed %}
 {% from "modular-content/link-list/link-list.njk" import linkList %}
+{% from "modular-content/card-grid/card-grid.njk" import cardGrid %}
 
 {% set componentByType = {
   rich_text: richText,
   image: responsiveImage,
   decision_tree_modular_block: decisionTree,
   external_tool_embed: iframeEmbed,
-  link_list: linkList
+  link_list: linkList,
+  card_grid: cardGrid
 } %}
 
 {% macro modularContent(items, context) %}

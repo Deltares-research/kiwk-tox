@@ -1,0 +1,7 @@
+{% macro button(slug, title, type='primary') %}
+  {% if slug %}
+    <a href="{{ slug }}" class="button button--{{ type }}">
+      {{ title }}
+    </a>
+  {% endif %}
+{% endmacro %}
