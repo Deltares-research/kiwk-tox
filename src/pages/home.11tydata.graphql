@@ -2,5 +2,36 @@ query Home($locale: SiteLocale) {
   home(locale: $locale) {
     title
     intro
+    sections {
+      ... on LinkListRecord {
+        id
+        _modelApiKey
+        title
+        items {
+          title
+          body
+          link {
+            slug
+          }
+        }
+      }
+      ... on RichTextRecord {
+        id
+        _modelApiKey
+        richText
+      }
+      ... on CardGridRecord {
+        id
+        _modelApiKey
+        title
+        items {
+          title
+          body
+          link {
+            slug
+          }
+        }
+      }
+    }
   }
 }

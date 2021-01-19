@@ -1,0 +1,28 @@
+{% macro linkList(blockData) %}
+  <article class="container container--width-small">
+      <h2 class="h2">{{ blockData.title }}</h2>
+      <ol class="link-list__items">
+        {% for item in blockData.items %}
+          <li class="link-list__item">
+            <article class="link-list__item-content">
+              <h2 class="h3 link-list__item-title">
+                {{ item.title }}
+              </h2>
+
+              {% if item.body %}
+                <div class="link-list__item-body">
+                  {{ item.body | safe }}
+                </div>
+              {% endif %}
+
+              <a href="{{ item.link.slug }}" class="link-list__item-link">
+                <span class="sr-only">
+                  {{ item.title }}
+                </span>
+              </a>
+            </article>
+          </li>
+        {% endfor %}
+      </ol>
+  </article>
+{% endmacro %}
