@@ -1,6 +1,37 @@
 <footer class="footer" role="contentinfo">
   <div class="footer__inner container">
-    <span>&copy; copyright {{ build.timestamp | dateToFormat('yyyy') }}</span>
-    Voorhoede
+
+    {%- set localeMainMenu = app.mainMenu | getLocaleData -%}
+    <nav class="footer__menu">
+      <a href="/{{ locale }}/" class="footer__logo">
+        <span class="sr-only">KIWK TOX</span>
+        {% include "../logo/logo.njk" %}
+      </a>
+      <ol class="footer__menu-items">
+        {% for item in localeMainMenu.items %}
+          <li class="footer__menu-item">
+            <a href="/{{ locale }}/{{ item.page.slug }}" class="footer__menu-link">
+              {{ item.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ol>
+    </nav>
+
+    <div class="footer__legal">
+      <span>&copy; Deltares {{ build.timestamp | dateToFormat('yyyy') }}</span>
+      <ol class="footer__legal-items">
+        <li class="footer__legal-item">
+          <a href="/{{ locale }}/accessibility" class="footer__legal-link body-small">
+            Accessibility
+          </a>
+        </li>
+        <li class="footer__legal-item">
+          <a href="/{{ locale }}/privacy" class="footer__legal-link body-small">
+            Privacy & Cookies
+          </a>
+        </li>
+      </ol>
+    </div>
   </div>
 </footer>
