@@ -1,26 +1,28 @@
 .hero {
   position: relative;
   z-index: 2;
-
   padding-right: $unit-xsmall;
   padding-left: $unit-xsmall;
-  background-color: $color-brand-purple;
+
   background-image: url('/assets/images/design/hero-background.svg');
-  background-size: cover;
 }
 
 .hero--primary {
-  height: 300px;
-  overflow: visible;
+  background-size: 100% 300px;
+  background-position: top left;
+  background-repeat: no-repeat;
 
   @media (min-width: 800px) {
-    height: 430px;
+    background-size: 100% 400px;
   }
 }
 
 .hero--secondary {
   min-height: 180px;
   display: flex;
+
+  background-color: $color-brand-purple;
+  background-size: cover;
 
   @media (min-width: 600px) {
     min-height: 220px;

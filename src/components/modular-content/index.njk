@@ -3,12 +3,14 @@
 {% from "modular-content/responsive-image/responsive-image.njk" import responsiveImage %}
 {% from "modular-content/decision-tree/decision-tree.njk" import decisionTree %}
 {% from "modular-content/iframe-embed/iframe-embed.njk" import iframeEmbed %}
+{% from "modular-content/link-list/link-list.njk" import linkList %}
 
 {% set componentByType = {
   rich_text: richText,
   image: responsiveImage,
   decision_tree_modular_block: decisionTree,
-  external_tool_embed: iframeEmbed
+  external_tool_embed: iframeEmbed,
+  link_list: linkList
 } %}
 
 {% macro modularContent(items, context) %}
