@@ -50,6 +50,7 @@ module.exports = function (config) {
   config.addPassthroughCopy({ 'src/static/': '/' });
 
   config.addPassthroughCopy('src/assets/images');
+  config.addPassthroughCopy('src/assets/icons');
   config.addPassthroughCopy('src/assets/fonts');
 
   // Deep-Merge

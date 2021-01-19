@@ -1,6 +1,15 @@
 .tree {
   &__branch {
-    margin-bottom: 1rem;
+    &:not(:first-child)::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 28px;
+      margin: 2rem 0 1.5rem;
+      background-image: url('/assets/icons/arrow-down.svg');
+      background-size: cover;
+      background-position: center;
+    }
 
     &--tip {
       background-color: greenyellow;
@@ -8,28 +17,40 @@
   }
 
   &__question {
-    border: thin solid #dbdbdb;
-    padding: 1rem;
-    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  &__preamble {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
   }
 
   &__answers {
     display: flex;
+    justify-content: space-between;
   }
 
   &__answer {
     flex-basis: 50%;
-    border: thin solid #dbdbdb;
-    padding: 1rem;
-    margin: 0;
+    font-size: 1.6rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid $color-brand-purple;
+    border-radius: $border-radius;
+    color: $color-brand-purple;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
     cursor: pointer;
 
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
     &:not(.tree__answer--selected):hover {
-      background: #eaeaea;
+      background-color: rgba($color-brand-ochre, 0.25);
     }
 
     &--selected {
-      background: aliceblue;
+      background-color: $color-brand-ochre;
+      border-color: $color-brand-ochre;
       cursor: default;
     }
   }
