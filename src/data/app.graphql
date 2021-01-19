@@ -5,6 +5,10 @@ query App($locale: SiteLocale) {
       page {
         slug
       }
+      subMenuItems {
+        title
+        slug
+      }
     }
   }
 }

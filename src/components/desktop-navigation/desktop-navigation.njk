@@ -4,10 +4,25 @@
     <ol class="desktop-navigation__items">
       {% for item in items %}
         {%- set isCurrent = (locale + '/' + item.page.slug == strippedUrl) -%}
+        {%- set hasSubMenu = item.subMenuItems|length > 0 -%}
         <li class="desktop-navigation__item{% if isCurrent %} desktop-navigation__item--active{% endif %}">
+
           <a href="/{{ locale }}/{{ item.page.slug }}">
             {{ item.name }}
           </a>
+
+          {% if hasSubMenu %}
+            <ol class="desktop-navigation__subitems">
+              {% for subItem in item.subMenuItems %}
+                <li class="desktop-navigation__item">
+                  <a href="/{{ locale }}/{{ subItem.slug }}">
+                    {{ subItem.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ol>
+          {% endif %}
+
         </li>
       {% endfor %}
     <ol>

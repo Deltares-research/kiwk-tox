@@ -7,7 +7,6 @@
 .desktop-navigation__items {
   display: flex;
   justify-content: flex-end;
-
   list-style: none;
 }
 
@@ -57,4 +56,16 @@
 
 .desktop-navigation__item--active a:after {
   transform: scaleY(1);
+}
+
+.desktop-navigation__subitems {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: $color-light;
+
+  .desktop-navigation__item:hover & {
+    display: block;
+  }
 }

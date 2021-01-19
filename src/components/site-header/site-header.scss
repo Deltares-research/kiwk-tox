@@ -1,6 +1,7 @@
 .header {
   height: $height-header-mobile;
   background-color: $color-light;
+  z-index: 3;
 
   @media (min-width: $navigation-breakpoint) {
     height: $height-header-desktop;
