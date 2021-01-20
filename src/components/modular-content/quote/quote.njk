@@ -1,11 +1,13 @@
 {% macro quote(blockData) %}
-  <figure class="quote section">
+  <figure class="section">
     <blockquote
-      class="body-xlarge quote__body"
+      class="body-xlarge quote__body container container--width-medium"
       cite="{% if blockData.source %}blockData.source{% endif %}"
     >
       {{ blockData.body | safe }}
     </blockquote>
-    <figcaption class="quote__author font-muted">{{ blockData.author }}</figcaption>
+    <figcaption class="quote__author font-muted container container--width-medium">
+      {{ blockData.author }}
+    </figcaption>
   </figure>
 {% endmacro %}
