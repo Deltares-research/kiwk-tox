@@ -1,0 +1,9 @@
+{% macro icon(name, stroke=false, strokeWidth=false, className=false) %}
+  <svg
+    class="svg-icon{% if stroke %} svg-icon--stroke{% endif %}{% if className %} {{ className }}{% endif %}"
+    stroke-width="{% if strokeWidth %}{{ strokeWidth }}px{% else %}0{% endif %}"
+    vector-effect="non-scaling-stroke"
+  >
+    <use xlink:href="#{{ name }}"></use>
+  </svg>
+{% endmacro %}
