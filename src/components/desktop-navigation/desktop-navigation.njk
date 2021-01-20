@@ -4,23 +4,39 @@
     <ol class="desktop-navigation__items">
       {% for item in items %}
         {%- set isCurrent = (locale + '/' + item.page.slug == strippedUrl) -%}
-        {%- set hasSubMenu = item.subMenuItems|length > 0 -%}
-        <li class="desktop-navigation__item{% if isCurrent %} desktop-navigation__item--active{% endif %}">
+        {%- set hasSubMenu = item.subMenuItems | length > 0 -%}
+        {%- set id = 'desktop-navigation-submenu-' + loop.index0 -%}
+        <li class="desktop-navigation__item{% if isCurrent %} desktop-navigation__item--active{% endif %}{% if hasSubMenu %} desktop-navigation__item--is-submenu{% endif %}">
 
-          <a href="/{{ locale }}/{{ item.page.slug }}">
+          <a class="desktop-navigation__item-link" href="/{{ locale }}/{{ item.page.slug }}">
             {{ item.name }}
           </a>
 
           {% if hasSubMenu %}
-            <ol class="desktop-navigation__subitems">
+            <ol class="desktop-navigation__subitems" id="{{ id }}">
               {% for subItem in item.subMenuItems %}
-                <li class="desktop-navigation__item">
-                  <a href="/{{ locale }}/{{ subItem.slug }}">
+                <li>
+                  <a class="desktop-navigation__subitem-link" href="/{{ locale }}/{{ subItem.slug }}">
                     {{ subItem.title }}
                   </a>
                 </li>
               {% endfor %}
             </ol>
+
+            <a
+              class="desktop-navigation__toggle desktop-navigation__toggle--close"
+              href="#"
+              data-toggle data-toggle-id="{{ id }}"
+            >
+              <span class="sr-only">Close</span>
+            </a>
+            <a
+              class="desktop-navigation__toggle desktop-navigation__toggle--open"
+              href="#{{ id }}"
+              data-toggle data-toggle-id="{{ id }}"
+            >
+              <span class="sr-only">Open</span>
+            </a>
           {% endif %}
 
         </li>
