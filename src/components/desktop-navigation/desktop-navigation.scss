@@ -87,6 +87,11 @@
   transform-origin: 50% 25%;
 }
 
+.desktop-navigation__toggle:hover:after,
+.desktop-navigation__toggle:focus:after {
+  border-top-color: $color-brand-ochre;
+}
+
 .desktop-navigation__toggle--close {
   display: none;
 }

@@ -5,12 +5,41 @@
     <ol class="mobile-navigation__items container container--width-xsmall">
       {% for item in items %}
         {%- set isCurrent = (locale + '/' + item.page.slug == strippedUrl) -%}
-        <li class="mobile-navigation__item{% if isCurrent %} mobile-navigation__item--active{% endif %}">
+        {%- set hasSubMenu = item.subMenuItems | length > 0 -%}
+        {%- set id = 'mobile-navigation-submenu-' + loop.index0 -%}
+        <li class="mobile-navigation__item{% if isCurrent %} mobile-navigation__item--active{% endif %}{% if hasSubMenu %} mobile-navigation__item--is-submenu{% endif %}">
           <a
-            class="font-light body-large"
+            class="font-light body-large mobile-navigation__link"
             href="/{{ locale }}/{{ item.page.slug }}">
             {{ item.name }}
           </a>
+
+          {% if hasSubMenu %}
+            <ol class="mobile-navigation__subitems" id="{{ id }}">
+              {% for subItem in item.subMenuItems %}
+                <li>
+                  <a class="mobile-navigation__subitem-link" href="/{{ locale }}/{{ subItem.slug }}">
+                    {{ subItem.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ol>
+
+            <a
+              class="mobile-navigation__sub-toggle mobile-navigation__sub-toggle--close body-large"
+              href="#"
+              data-toggle data-toggle-id="{{ id }}"
+            >
+              <span class="sr-only">Close</span>
+            </a>
+            <a
+              class="mobile-navigation__sub-toggle mobile-navigation__sub-toggle--open body-large"
+              href="#{{ id }}"
+              data-toggle data-toggle-id="{{ id }}"
+            >
+              <span class="sr-only">Open</span>
+            </a>
+          {% endif %}
         </li>
       {% endfor %}
     <ol>
