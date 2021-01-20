@@ -13,16 +13,6 @@
 .external-tools__item-content {
   padding-top: $unit-medium;
   padding-bottom: $unit-medium;
-
-  @media (min-width: 900px) {
-    padding-right: $unit-medium;
-    padding-left: $unit-medium;
-  }
-
-  @media (min-width: 1100px) {
-    padding-right: $unit-large;
-    padding-left: $unit-large;
-  }
 }
 
 .external-tools__item-body {

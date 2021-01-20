@@ -3,7 +3,7 @@
     <ol class="external-tools__items">
       {% for item in blockData.items %}
         <li class="external-tools__item section">
-          <article class="external-tools__item-content">
+          <article class="external-tools__item-content container container--width-medium">
             <h2 class="h2">{{ item.title }}</h2>
             {% if item.body %}
               <div class="external-tools__item-body">{{ item.body | safe }}</div>
