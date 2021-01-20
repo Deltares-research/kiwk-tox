@@ -1,0 +1,25 @@
+.quote > * {
+  max-width: $max-width-medium;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.quote__body {
+  line-height: 1.3em;
+
+  a {
+    color: $color-brand-purple;
+    text-decoration: none;
+    border-bottom: .08em solid $color-brand-purple;
+
+    &:hover,
+    &:focus {
+      border-bottom-color: transparent;
+    }
+  }
+}
+
+.quote__author {
+  margin-top: $unit-xsmall;
+  text-align: right;
+}

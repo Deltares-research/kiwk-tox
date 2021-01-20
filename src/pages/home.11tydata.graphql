@@ -32,6 +32,12 @@ query Home($locale: SiteLocale) {
           }
         }
       }
+      ... on QuoteRecord {
+        _modelApiKey
+        body
+        source
+        author
+      }
     }
   }
 }
