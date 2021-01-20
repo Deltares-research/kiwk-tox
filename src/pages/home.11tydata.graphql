@@ -32,6 +32,15 @@ query Home($locale: SiteLocale) {
           }
         }
       }
+      ... on ExternalToolListRecord {
+        _modelApiKey
+        items {
+          title
+          body
+          url
+          label
+        }
+      }
     }
   }
 }
