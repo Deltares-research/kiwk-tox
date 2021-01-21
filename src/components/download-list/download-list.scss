@@ -1,0 +1,73 @@
+$download-icon-large: 80px;
+$download-icon-small: 60px;
+
+.download-list {
+  flex-grow: 2;
+  padding-top: $unit-medium;
+  padding-bottom: $unit-medium;
+
+  background-color: $color-light;
+}
+
+.download-list__items {
+  list-style: none;
+}
+
+.download-list__item + .download-list__item {
+  margin-top: $unit-xsmall;
+}
+
+.download-list__item-link {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  border: 1px solid $color-grey;
+  border-radius: $border-radius;
+  color: $color-text;
+  text-decoration: none;
+}
+
+.download-list__item-content {
+  padding: $unit-xsmall;
+
+  @media (min-width: 800px) {
+    padding: $unit-small;
+  }
+}
+
+.download-list__item-body {}
+
+.download-list__icon {
+  width: $download-icon-small;
+  min-width: $download-icon-small;
+  min-height: 100%;
+  background-color: $color-grey;
+
+  @media (min-width: 800px) {
+    width: $download-icon-large;
+    min-width: $download-icon-large;
+  }
+}
+
+.download-list__icon svg {
+  position: relative;
+  top: calc(50% - #{$download-icon-small} * .25);
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  width: calc(#{$download-icon-small} * .5);
+  height: calc(#{$download-icon-small} * .5);
+
+  fill: transparent;
+  stroke: $color-text;
+  stroke-width: 5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  @media (min-width: 800px) {
+    top: calc(50% - #{$download-icon-large} * .25);
+    width: calc(#{$download-icon-large} * .5);
+    height: calc(#{$download-icon-large} * .5);
+  }
+}

@@ -4,6 +4,7 @@ pagination:
   data: allPages
   size: 1
   alias: item
+  addAllPagesToCollections: true
 permalink: /{{ item.locale }}/{{ item.slug }}/
 eleventyComputed:
   locale: "{{ item.locale }}"
@@ -12,7 +13,13 @@ eleventyComputed:
 
 {% from "../components/hero/hero.njk" import hero %}
 {% from "modular-content/index.njk" import modularContent %}
-
+{% from "../components/download-list/download-list.njk" import downloadList %}
 
 {{ hero(title=item.title, level='secondary') }}
-{{ modularContent(item.body) }}
+
+{% if item.slug === 'downloads' %}
+  {%- set localeDownloads = allDownloads | filterByLocale -%}
+  {{ downloadList(localeDownloads) }}
+{% else %}
+  {{ modularContent(item.body) }}
+{% endif %}

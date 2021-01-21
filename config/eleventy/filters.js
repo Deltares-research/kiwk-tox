@@ -49,6 +49,18 @@ module.exports = {
     return array.find(item => item.locale === locale);
   },
 
+  filterByLocale(array) {
+    const { locale } = this.ctx;
+
+    if(!array || !array.length || !locale) {
+      console.warn('filterByLocale: array is: ', array)
+      console.warn('filterByLocale: locale is: ', locale)
+      return
+    }
+
+    return array.filter(item => item.locale === locale);
+  },
+
   inferAltSlug(languages, locale) {
     const baseString = `/${locale}/`;
     if (!languages) return baseString;
