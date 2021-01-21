@@ -1,3 +1,5 @@
+{% from "../../button/button.njk" import button %}
+
 {% macro externalTools(blockData) %}
   <article>
     <ol class="external-tools__items">
@@ -6,10 +8,9 @@
           <article class="external-tools__item-content container container--width-medium">
             <h2 class="h2">{{ item.title }}</h2>
             {% if item.body %}
-              <div class="external-tools__item-body">{{ item.body | safe }}</div>
+              <div>{{ item.body | safe }}</div>
             {% endif %}
-            {{ item.url }}
-            {{ item.label }}
+            {{ button(slug=item.url, title=item.label, iconType="external") }}
           </article>
         </li>
       {% endfor %}

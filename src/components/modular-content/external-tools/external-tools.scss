@@ -11,10 +11,20 @@
 }
 
 .external-tools__item-content {
-  padding-top: $unit-medium;
-  padding-bottom: $unit-medium;
+  padding-top: $unit-small;
+  padding-bottom: $unit-small;
+
+  @media (min-width: 600px) {
+    padding-top: $unit-medium;
+    padding-bottom: $unit-medium;
+  }
+
+  @media (min-width: 1000px) {
+    padding-top: $unit-large;
+    padding-bottom: $unit-large;
+  }
 }
 
-.external-tools__item-body {
+.external-tools__item-content > * + * {
   margin-top: $unit-small;
 }
