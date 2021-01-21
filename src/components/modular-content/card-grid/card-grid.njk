@@ -1,0 +1,29 @@
+{% from "../../button/button.njk" import button %}
+
+{% macro cardGrid(blockData) %}
+  <article class="card-grid section">
+    <div class="container container--width-medium">
+      <h2 class="font-light h2">{{ blockData.title }}</h2>
+
+      <ol class="card-grid__items">
+        {% for item in blockData.items %}
+          <li class="card-grid__item">
+            <article class="card-grid__item-content">
+              <h2 class="font-light h3">
+                {{ item.title }}
+              </h2>
+              {% if item.body %}
+                <div class="card-grid__item-body font-light body-small">
+                  {{ item.body | safe }}
+                </div>
+              {% endif %}
+              <p class="card-grid__item-actions">
+                {{ button(slug=item.link.slug, title='Go to') }}
+              </p>
+            </article>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </article>
+{% endmacro %}

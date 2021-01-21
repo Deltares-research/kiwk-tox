@@ -1,0 +1,36 @@
+.button {
+  display: inline-block;
+  padding: .26em 1em .3em 1em;
+
+  background-color: $color-brand-ochre;
+  border-radius: $border-radius;
+  font-family: $font-sans-bold;
+  color: $color-text;
+  text-decoration: none;
+
+  box-shadow: 0 0 0 $color-brand-ochre;
+  transition: box-shadow .15s;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: 0 0 0 3px $color-brand-ochre;
+}
+
+.button--primary {
+  padding-left: .7em;
+}
+
+.button--primary:before {
+  content: '';
+  display: inline-block;
+  vertical-align: baseline;
+
+  border: 6px solid transparent;
+  border-left-color: $color-text;
+  transition: transform .15s;
+}
+
+.button--primary:hover:before {
+  transform: translateX(4px);
+}
