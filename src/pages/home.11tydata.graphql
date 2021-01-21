@@ -32,6 +32,18 @@ query Home($locale: SiteLocale) {
           }
         }
       }
+      ... on ImageRecord {
+        _modelApiKey
+        image {
+          url
+          alt
+          responsiveImage {
+            aspectRatio
+            base64
+          }
+        }
+        body
+      }
       ... on ExternalToolListRecord {
         _modelApiKey
         items {
