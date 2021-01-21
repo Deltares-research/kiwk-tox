@@ -20,6 +20,28 @@
     margin-bottom: 1rem;
   }
 
+  &__content-link {
+    position: relative;
+    margin-bottom: 1rem;
+    color: $color-brand-purple;
+    text-decoration: none;
+    padding-left: 1.2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(.6em - 6px);
+      left: 0;
+      transition: left 0.2s ease-out;
+      border: 6px solid transparent;
+      border-left-color: $color-brand-purple;
+    }
+
+    &:hover::before {
+      left: 0.5rem;
+    }
+  }
+
   &__preamble {
     font-size: 1.6rem;
     margin-bottom: 0.5rem;

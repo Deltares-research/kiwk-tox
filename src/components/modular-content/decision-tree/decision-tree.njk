@@ -1,5 +1,5 @@
 {% macro decisionTree(blockData) %}
-<div class="container">
+<div class="section">
   <div id="ID-{{ blockData.decisionTree.id }}">
     {% raw %}
       <template v-for="option in options">
@@ -26,6 +26,7 @@
               :href="option.linkedContent.externalUrl"
               target="_blank"
               rel="noopener"
+              class="tree__content-link"
             >
               {{ option.linkedContent.title }}
             </a>
@@ -33,6 +34,7 @@
               v-if="option.linkedContent.internalPage"
               :href="`/${ locale }/${ option.linkedContent.internalPage.slug }`"
               :target="option.isEndResult ? '' : '_blank'"
+              class="tree__content-link"
             >
               {{ option.linkedContent.title }}
             </a>
