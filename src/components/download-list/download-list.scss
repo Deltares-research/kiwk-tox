@@ -26,6 +26,10 @@ $download-icon-small: 60px;
   border-radius: $border-radius;
   color: $color-text;
   text-decoration: none;
+
+  &:hover {
+    background-color: $color-grey-light;
+  }
 }
 
 .download-list__item-content {
