@@ -1,25 +1,55 @@
-.rich-text {
-  a {
+.rich-text > * + * {
+  margin-top: 1em;
+}
+
+.rich-text a {
+  text-decoration: underline;
+  font-weight: 600;
+  color: $color-brand-purple;
+
+  &:focus,
+  &:hover {
     text-decoration: none;
-
-    &:focus,
-    &:hover {
-      text-decoration: underline;
-    }
   }
+}
 
-  p {
-    margin-bottom: 26px;
-  }
+.rich-text ul,
+.rich-text ol {
+  list-style: none;
+  font-family: $font-sans;
+}
 
-  ul {
-    display: block;
-    list-style-type: disc;
-    list-style-position: outside;
-    padding-left: 18px;
+.rich-text ol {
+  counter-reset: ol;
+}
 
-    li {
-      padding-left: 10px;
-    }
-  }
+.rich-text ol li {
+  counter-increment: ol;
+}
+
+.rich-text li {
+  position: relative;
+  padding-left: 1.3em;
+}
+
+.rich-text ul li:before,
+.rich-text ol li:before {
+  position: absolute;
+  left: 0;
+  opacity: .5;
+}
+
+.rich-text ol li:before {
+  content: counter(ol) '. ';
+  top: .3em;
+  font-size: .8em;
+}
+
+.rich-text ul li:before {
+  content: '';
+  top: calc(.9em - 2px);
+  width: 4px;
+  height: 4px;
+  background-color: $color-text;
+  border-radius: 50%;
 }
