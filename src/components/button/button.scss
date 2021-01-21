@@ -17,11 +17,12 @@
   box-shadow: 0 0 0 3px $color-brand-ochre;
 }
 
-.button--primary {
+// case primary without icon
+.button--primary:not(.button--icon) {
   padding-left: .7em;
 }
 
-.button--primary:before {
+.button--primary:not(.button--icon):before {
   content: '';
   display: inline-block;
   vertical-align: baseline;
@@ -31,6 +32,33 @@
   transition: transform .15s;
 }
 
-.button--primary:hover:before {
+.button--primary:not(.button--icon):hover:before {
   transform: translateX(4px);
+}
+
+// case primary with icon
+.button--primary.button--icon {
+  padding-right: 0.26em;
+}
+
+.button--primary.button--icon svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: $unit-xsmall;
+  vertical-align: baseline;
+
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.button--icon.button--external svg {
+  width: .8em;
+  height: .8em;
+  vertical-align: top;
+
+  stroke-width: 12px;
 }
