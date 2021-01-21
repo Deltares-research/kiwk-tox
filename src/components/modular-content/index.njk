@@ -1,7 +1,7 @@
 {# components A-Z #}
 {% from "modular-content/rich-text/rich-text.njk" import richText %}
 {% from "modular-content/responsive-image/responsive-image.njk" import responsiveImage %}
-{% from "modular-content/decision-tree/decision-tree.njk" import decisionTree %}
+{% from "modular-content/decision-tree/decision-tree.njk" import decisionTree with context %}
 {% from "modular-content/iframe-embed/iframe-embed.njk" import iframeEmbed %}
 {% from "modular-content/link-list/link-list.njk" import linkList %}
 {% from "modular-content/external-tools/external-tools.njk" import externalTools %}
@@ -17,14 +17,14 @@
   card_grid: cardGrid
 } %}
 
-{% macro modularContent(items, context) %}
+{% macro modularContent(items) %}
 <div class="modular-content">
   <div class="container modular-content__inner">
     {% for item in items %}
       {% set itemType = item._modelApiKey %}
       {% set component = componentByType[itemType] %}
       {% if component %}
-        {{ component(item, context) }}
+        {{ component(item) }}
       {% else %}
         <script>console.warn('Unknown item type "{{ itemType }}"');</script>
       {% endif %}

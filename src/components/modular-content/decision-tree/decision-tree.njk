@@ -20,6 +20,24 @@
           >
             {{ option.content }}
           </p>
+          <template v-if="option.linkedContent">
+            <a
+              v-if="option.linkedContent.externalUrl"
+              :href="option.linkedContent.externalUrl"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ option.linkedContent.title }}
+            </a>
+            <a
+              v-if="option.linkedContent.internalPage"
+              :href="`/${ locale }/${ option.linkedContent.internalPage.slug }`"
+              :target="option.isEndResult ? '' : '_blank'"
+            >
+              {{ option.linkedContent.title }}
+            </a>
+          </template>
+
           <!-- The answers/choices -->
           <template v-if="option.choices && option.choices.length">
             <p class="tree__preamble">
@@ -44,5 +62,5 @@
 
 <script src="https://unpkg.com/vue@3.0.5/dist/vue.global.prod.js"></script>
 <script src="{{ '/assets/scripts/decision-tree.js' | url }}"></script>
-<script>createDecisionTree({{ blockData | json }});</script>
+<script>createDecisionTree({{ blockData | json }}, '{{ locale }}');</script>
 {% endmacro %}

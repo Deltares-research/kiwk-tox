@@ -11,7 +11,7 @@ eleventyComputed:
 ---
 
 {% from "../components/hero/hero.njk" import hero %}
-{% from "modular-content/index.njk" import modularContent %}
+{% from "modular-content/index.njk" import modularContent with context %}
 
 
 {{ hero(title=item.title, level='secondary') }}

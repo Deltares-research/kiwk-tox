@@ -37,6 +37,13 @@ query PageSlug($locale: SiteLocale) {
           branches {
             slug
             content
+            linkedContent {
+              title
+              internalPage {
+                slug
+              }
+              externalUrl
+            }
             isEndResult
             choices {
               content

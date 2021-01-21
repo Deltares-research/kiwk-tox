@@ -1,10 +1,11 @@
-const createDecisionTree = ({ decisionTree }) => {
+const createDecisionTree = ({ decisionTree }, locale) => {
   Vue.createApp({
     data: () => ({
-      options: [],
-      choices: [],
-      choicePreamble: '',
-      resultPreamble: '',
+      options: decisionTree.branches,
+      choices: [ decisionTree.branches[0].slug ],
+      choicePreamble: decisionTree.choicePreamble,
+      resultPreamble: decisionTree.resultPreamble,
+      locale,
     }),
 
     methods: {
@@ -33,13 +34,6 @@ const createDecisionTree = ({ decisionTree }) => {
         option.selection = targetSlug;
         this.choices = [...this.choices, targetSlug];
       },
-    },
-
-    created() {
-      this.options = decisionTree.branches;
-      this.choicePreamble = decisionTree.choicePreamble;
-      this.resultPreamble = decisionTree.resultPreamble;
-      this.choices = [this.options[0].slug];
     },
   }).mount(`#ID-${ decisionTree.id }`);
 }
