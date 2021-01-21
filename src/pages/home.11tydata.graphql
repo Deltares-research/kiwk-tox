@@ -52,6 +52,7 @@ query Home($locale: SiteLocale) {
           url
           label
         }
+      }
     }
   }
 }
