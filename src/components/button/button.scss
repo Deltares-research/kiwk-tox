@@ -1,0 +1,64 @@
+.button {
+  display: inline-block;
+  padding: .26em 1em .3em 1em;
+
+  background-color: $color-brand-ochre;
+  border-radius: $border-radius;
+  font-family: $font-sans-bold;
+  color: $color-text;
+  text-decoration: none;
+
+  box-shadow: 0 0 0 $color-brand-ochre;
+  transition: box-shadow .15s;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: 0 0 0 3px $color-brand-ochre;
+}
+
+// case primary without icon
+.button--primary:not(.button--icon) {
+  padding-left: .7em;
+}
+
+.button--primary:not(.button--icon):before {
+  content: '';
+  display: inline-block;
+  vertical-align: baseline;
+
+  border: 6px solid transparent;
+  border-left-color: $color-text;
+  transition: transform .15s;
+}
+
+.button--primary:not(.button--icon):hover:before {
+  transform: translateX(4px);
+}
+
+// case primary with icon
+.button--primary.button--icon {
+  padding-right: 0.26em;
+}
+
+.button--primary.button--icon svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: $unit-xsmall;
+  vertical-align: baseline;
+
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.button--icon.button--external svg {
+  width: .8em;
+  height: .8em;
+  vertical-align: top;
+
+  stroke-width: 12px;
+}

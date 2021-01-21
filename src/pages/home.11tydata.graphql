@@ -44,6 +44,14 @@ query Home($locale: SiteLocale) {
         }
         body
       }
+      ... on ExternalToolListRecord {
+        _modelApiKey
+        items {
+          title
+          body
+          url
+          label
+        }
     }
   }
 }
