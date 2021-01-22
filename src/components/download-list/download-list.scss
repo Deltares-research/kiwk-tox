@@ -27,7 +27,8 @@ $download-icon-small: 60px;
   color: $color-text;
   text-decoration: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $color-grey-light;
   }
 }
