@@ -52,10 +52,8 @@ $color-text: $color-dark;
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-sans: 'Roboto-Regular', sans-serif;
-$font-sans-bold: 'Roboto-Medium', sans-serif;
+$font-sans: 'Exo', sans-serif;
 $font-serif: 'Times New Roman', Georgia, Times, serif;
-$font-base: $font-sans;
 
 $font-size-root: 62.5%; /* this causes you to put pixels easily in rem - 24px = 2.4rem */
 $font-size-base: 1.8rem;

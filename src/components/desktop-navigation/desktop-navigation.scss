@@ -65,6 +65,7 @@
 
   color: $color-brand-purple;
   text-decoration: none;
+  @include fontWeight(bold);
 }
 
 //==================================== dropdown toggle

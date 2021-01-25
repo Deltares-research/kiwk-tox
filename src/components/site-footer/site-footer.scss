@@ -61,6 +61,8 @@
 
 .footer__menu-link {
   display: block;
+
+  @include fontWeight(bold);
   color: $color-brand-purple;
   text-decoration: none;
 }
