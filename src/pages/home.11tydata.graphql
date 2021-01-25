@@ -53,6 +53,10 @@ query Home($locale: SiteLocale) {
           label
         }
       }
+      ... on TitleRecord {
+        _modelApiKey
+        title
+      }
       ... on VideoRecord {
         _modelApiKey
         video {

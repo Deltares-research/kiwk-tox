@@ -33,3 +33,7 @@
     margin-top: $unit-xlarge;
   }
 }
+
+.modular-content__inner > .title + * {
+  margin-top: $unit-small;
+}
