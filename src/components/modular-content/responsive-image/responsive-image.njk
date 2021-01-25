@@ -1,24 +1,30 @@
-{% macro responsiveImage(blockData, context) %}
+{% macro responsiveImage(blockData) %}
   {% set image = blockData.image %}
+  {% set caption = blockData.body %}
 
-  <div class="responsive-image container {% if context.modifiers.large %}container--large {% else %}container--small{% endif %}">
-    <figure
-      class="responsive-image__figure {% if context.modifiers.rounded %}responsive-image__figure--rounded{% endif %}"
-      style="padding-top: {{ 100.0 / image.responsiveImage.aspectRatio }}%;
-             background-image: url({{ image.responsiveImage.base64 }});
-             background-size: cover;"
-    >
-      <picture class="responsive-image__picture">
-        <source type="image/webp" srcset="{{ image.url | imageUrl({ w: 776, fm: 'webp' }) }}">
-        <img
-          alt="{{ image.alt }}"
-          src="{{ image.url | imageUrl({ w: 776 }) }}"
-          loading="lazy"
-          class="responsive-image__figure-image {% if context.modifiers.rounded %}responsive-image__figure-image--rounded{% endif %}"
-          style="width:100%; height:100%;"
-        />
-      </picture>
-      <figcaption class="caption responsive-image__figure-caption">{{ image.title }}</figcaption>
+  <article class="section">
+    <figure>
+      <div
+        class="responsive-image__fixed-ratio"
+        style="padding-top: {{ 100.0 / image.responsiveImage.aspectRatio }}%;
+              background-image: url({{ image.responsiveImage.base64 }});
+              background-size: cover;">
+        <picture class="responsive-image__picture">
+          <source type="image/webp" srcset="{{ image.url | imageUrl({ w: 776, fm: 'webp' }) }}">
+          <img
+            alt="{{ image.alt }}"
+            src="{{ image.url | imageUrl({ w: 776 }) }}"
+            loading="lazy"
+            class="responsive-image__figure-image"
+            style="width:100%; height:100%;"
+          />
+        </picture>
+      </div>
+      {% if caption %}
+        <figcaption class="responsive-image__caption rich-text body-small font-muted">
+          {{ caption | safe }}
+        </figcaption>
+      {% endif %}
     </figure>
-  </div>
+  </article>
 {% endmacro %}

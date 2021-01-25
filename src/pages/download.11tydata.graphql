@@ -1,0 +1,13 @@
+query Download($locale: SiteLocale) {
+  download(locale: $locale) {
+    slug
+    title
+    downloads {
+      body
+      file {
+        url
+        filename
+      }
+    }
+  }
+}

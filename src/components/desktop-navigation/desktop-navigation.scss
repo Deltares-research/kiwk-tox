@@ -7,25 +7,12 @@
 .desktop-navigation__items {
   display: flex;
   justify-content: flex-end;
-
   list-style: none;
 }
 
 .desktop-navigation__item {
   position: relative;
-}
-
-.desktop-navigation__item a {
-  position: relative;
-  height: $height-header-desktop;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: $unit-xsmall;
-  padding-left: $unit-xsmall;
-
-  color: $color-brand-purple;
-  text-decoration: none;
 
   transition: background-color .1s linear;
 
@@ -34,7 +21,8 @@
   }
 }
 
-.desktop-navigation__item a {
+//==================================== active indicator
+.desktop-navigation__item {
   &:after {
     content: '';
     position: absolute;
@@ -55,6 +43,104 @@
   }
 }
 
-.desktop-navigation__item--active a:after {
+.desktop-navigation__item--active:after {
   transform: scaleY(1);
+}
+
+//==================================== first level link
+.desktop-navigation__item-link {
+  position: relative;
+  height: $height-header-desktop;
+  flex-grow: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: $unit-xsmall;
+  padding-left: $unit-xsmall;
+
+  .desktop-navigation__item--is-submenu & {
+    padding-right: 0;
+  }
+
+  color: $color-brand-purple;
+  text-decoration: none;
+}
+
+//==================================== dropdown toggle
+.desktop-navigation__toggle {
+  position: relative;
+  height: $height-header-desktop;
+  width: 25px;
+  min-width: 25px;
+}
+
+.desktop-navigation__toggle:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 6px);
+
+  border: 6px solid transparent;
+  border-top-color: $color-brand-purple;
+
+  transform-origin: 50% 25%;
+}
+
+.desktop-navigation__toggle:hover:after,
+.desktop-navigation__toggle:focus:after {
+  border-top-color: $color-brand-ochre;
+}
+
+.desktop-navigation__toggle--close {
+  display: none;
+}
+
+.desktop-navigation__subitems:target,
+.desktop-navigation__subitems.toggle--active {
+  ~ .desktop-navigation__toggle:after {
+    transform: rotate(180deg);
+  }
+
+  ~ .desktop-navigation__toggle--close {
+    display: block;
+  }
+
+  ~ .desktop-navigation__toggle--open {
+    display: none;
+  }
+}
+
+
+//==================================== subitems
+.desktop-navigation__subitems {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: min-content;
+  min-width: 200px;
+  max-width: 250px;
+
+  border-top: 1px solid $color-grey-light;
+  background-color: $color-light;
+  list-style: none;
+
+  &.toggle--active,
+  &:target {
+    display: block;
+  }
+}
+
+.desktop-navigation__subitem-link {
+  display: block;
+  padding: .4em .8em;
+
+  text-decoration: none;
+  color: $color-brand-purple;
+
+  &:hover,
+  &:focus {
+    background-color: $color-grey-light;
+  }
 }

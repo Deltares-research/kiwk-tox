@@ -32,11 +32,50 @@ query Home($locale: SiteLocale) {
           }
         }
       }
+<<<<<<< HEAD
       ... on QuoteRecord {
         _modelApiKey
         body
         source
         author
+=======
+      ... on ImageRecord {
+        _modelApiKey
+        image {
+          url
+          alt
+          responsiveImage {
+            aspectRatio
+            base64
+          }
+        }
+        body
+      }
+      ... on ExternalToolListRecord {
+        _modelApiKey
+        items {
+          title
+          body
+          url
+          label
+        }
+      }
+      ... on TitleRecord {
+        _modelApiKey
+        title
+      }
+      ... on VideoRecord {
+        _modelApiKey
+        video {
+          title
+          thumbnailUrl
+          provider
+          url
+          providerUid
+          width
+          height
+        }
+>>>>>>> main
       }
     }
   }

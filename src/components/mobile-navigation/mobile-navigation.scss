@@ -1,3 +1,5 @@
+$sub-toggle-size: 30px;
+
 .mobile-navigation {
   position: fixed;
   z-index: 50;
@@ -29,7 +31,13 @@
   border-top: 1px solid rgba($color-light, .1);
 }
 
-.mobile-navigation__item a {
+.mobile-navigation__item--is-submenu {
+  position: relative;
+  padding-right: $sub-toggle-size;
+}
+
+//==================================== first level link
+.mobile-navigation__link {
   position: relative;
   display: block;
   padding-top: .6em;
@@ -38,11 +46,11 @@
   text-decoration: none;
 }
 
-.mobile-navigation__item--active a {
+.mobile-navigation__item--active .mobile-navigation__link {
   font-family: $font-sans-bold;
 }
 
-.mobile-navigation__item a:before {
+.mobile-navigation__link:before {
   content: '';
   position: absolute;
   top: calc(1.4em - #{$unit-xsmall * .5});
@@ -58,9 +66,81 @@
   transition: transform .1s;
 }
 
-.mobile-navigation__item a:hover:before,
-.mobile-navigation__item--active a:before {
+.mobile-navigation__link:hover:before,
+.mobile-navigation__item--active .mobile-navigation__link:before {
   transform: scale(.5);
+}
+
+//==================================== sub menu toggle
+.mobile-navigation__sub-toggle {
+  position: absolute;
+  top: calc(1.5em - #{$sub-toggle-size * .5});
+  right: 0;
+  width: $sub-toggle-size;
+  height: $sub-toggle-size;
+}
+
+.mobile-navigation__sub-toggle:after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 6px);
+  left: calc(50% - 6px);
+
+  border: 6px solid transparent;
+  border-top-color: $color-light;
+
+  transform-origin: 50% 25%;
+}
+
+.mobile-navigation__sub-toggle:hover:after,
+.mobile-navigation__sub-toggle:focus:after {
+  border-top-color: $color-brand-ochre;
+}
+
+.mobile-navigation__sub-toggle--close {
+  display: none;
+}
+
+.mobile-navigation__subitems.toggle--active,
+.mobile-navigation__subitems:target {
+  ~ .mobile-navigation__sub-toggle--open {
+    display: none;
+  }
+
+  ~ .mobile-navigation__sub-toggle--close {
+    display: block;
+  }
+
+  ~ .mobile-navigation__sub-toggle:after {
+    transform: rotate(180deg);
+  }
+}
+
+//==================================== sub items
+.mobile-navigation__subitems {
+  display: none;
+  padding-bottom: $unit-xsmall;
+  list-style: none;
+
+  &.toggle--active,
+  &:target {
+    display: block;
+  }
+}
+
+.mobile-navigation__subitem-link {
+  display: block;
+  padding-top: .4em;
+  padding-bottom: .4em;
+  padding-left: 1em;
+
+  color: $color-light;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $color-brand-ochre;
+  }
 }
 
 // ====================================== toggle button

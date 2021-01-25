@@ -1,0 +1,13 @@
+{% from "../icon/index.njk" import icon %}
+
+{% macro button(slug, title, type='primary', iconType=false) %}
+  {% if slug %}
+    <a href="{{ slug }}" class="button button--{{ type }}{% if iconType %} button--icon button--{{ iconType }}{% endif %}">
+      {{ title }}
+
+      {% if iconType %}
+        {{ icon(iconType) }}
+      {% endif %}
+    </a>
+  {% endif %}
+{% endmacro %}

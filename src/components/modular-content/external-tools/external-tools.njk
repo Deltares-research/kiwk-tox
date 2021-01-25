@@ -1,0 +1,19 @@
+{% from "../../button/button.njk" import button %}
+
+{% macro externalTools(blockData) %}
+  <article>
+    <ol class="external-tools__items">
+      {% for item in blockData.items %}
+        <li class="external-tools__item section">
+          <article class="external-tools__item-content container container--width-medium">
+            <h2 class="h2">{{ item.title }}</h2>
+            {% if item.body %}
+              <div>{{ item.body | safe }}</div>
+            {% endif %}
+            {{ button(slug=item.url, title=item.label, iconType="external") }}
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+  </article>
+{% endmacro%}

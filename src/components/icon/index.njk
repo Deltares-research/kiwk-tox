@@ -1,0 +1,17 @@
+{# components A-Z #}
+{% from "icon/external.njk" import external %}
+{% from "icon/download.njk" import download %}
+
+{% set componentByType = {
+  external: external,
+  download: download
+} %}
+
+{% macro icon(type) %}
+  {% set component = componentByType[type] %}
+  {% if component %}
+    {{ component() }}
+  {% else %}
+    <script>console.warn('Unknown icon type "{{ type }}"');</script>
+  {% endif %}
+{% endmacro %}

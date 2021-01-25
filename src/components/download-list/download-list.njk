@@ -1,0 +1,32 @@
+{% from "../icon/index.njk" import icon %}
+
+{% macro downloadList(items) %}
+  <article class="download-list container section">
+    <ul class="download-list__items">
+      {% for item in items %}
+        <li class="download-list__item">
+          <a
+            class="download-list__item-link"
+            href="{{ item.file.url }}"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <div class="download-list__item-content">
+              <p class="h3">{{ item.file.filename }}</p>
+
+              {% if item.body %}
+                <div class="download-list__item-body font-muted">
+                  {{ item.body }}
+                </div>
+              {% endif %}
+            </div>
+
+            <div class="download-list__icon">
+              {{ icon('download')}}
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </article>
+{% endmacro %}
