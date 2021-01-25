@@ -1,5 +1,3 @@
-{% from "icon/icon.njk" import icon %}
-
 {% macro responsiveVideo(blockData) %}
 
   {% set video = blockData.video %}
@@ -87,7 +85,7 @@
       </picture>
 
       <span class="responsive-video__play-button">
-        {{ icon('play') }}
+        {% icon "play" %}
       </span>
   </a>
 {% endmacro %}
