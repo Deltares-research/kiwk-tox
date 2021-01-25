@@ -1,0 +1,101 @@
+{% from "icon/icon.njk" import icon %}
+
+{% macro responsiveVideo(blockData) %}
+
+  {% set video = blockData.video %}
+  {% set aspectRatio = video.height / video.width * 100 %}
+
+  {% switch video.provider %}
+  {% case 'vimeo' %}
+    {% set sizeRegex = r/_.*/ %}
+    {% set options = {
+        byline: false,
+        autoplay: true,
+        dnt: true
+      }
+    %}
+    {% set videoUrl =  'https://player.vimeo.com/video/' + video.providerUid | createStringParameters(options) %}
+    {% set imageUrl =  video.thumbnailUrl | replace(sizeRegex, '_'+852+'x'+480 + '.jpg') %}
+    {% set imageUrl2x =  video.thumbnailUrl | replace(sizeRegex, '_'+1704+'x'+960 + '.jpg') %}
+  {% case 'youtube' %}
+    {% set options = {
+        autoplay: 1
+      }
+    %}
+    {% set image = '/maxresdefault.jpg' %}
+    {% set videoUrl =  'https://www.youtube.com/embed/' + video.providerUid | createStringParameters(options) %}
+
+    {% if video.width < 320 %}
+      {% set image = '/mqdefault.jpg' %}
+    {% elseif video.width < 480 %}
+      {% set image = '/hqdefault.jpg' %}
+    {% endif %}
+
+    {% set imageUrl = video.thumbnailUrl | replace('/hqdefault.jpg', image) %}
+  {% default %}
+    {% set videoUrl = '' %}
+    {% set imageUrl = '' %}
+  {% endswitch %}
+
+  {% if videoUrl %}
+    <article class="responsive-video section" data-responsive-video>
+        <figure class="responsive-video__figure container container--width-small">
+          <div
+            class="responsive-video__figure-inner"
+            style="padding-bottom: {{ aspectRatio }}%"
+          >
+            {{ videoPlayer(video.title, videoUrl) }}
+            {{ imageOverlay(video.url, imageUrl, imageUrl2x) }}
+          </div>
+          {{ caption(video.title, video.url) }}
+        </figure>
+    </article>
+  {% endif %}
+{% endmacro %}
+
+{% macro videoPlayer(title, url) %}
+  <iframe
+    class="responsive-video__iframe"
+    title="{{ title }}"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    loading="lazy"
+    data-responsive-video-iframe="{{ url }}">
+  </iframe>
+{% endmacro %}
+
+{% macro imageOverlay(videoUrl, imageUrl, imageUrl2x='') %}
+  <a class="responsive-video__image"
+     href="{{ videoUrl }}"
+     target="_blank"
+     rel="noopener"
+     data-video-play-button>
+      <picture class="responsive-image__picture">
+        {% if imageUrl2x %}
+          <source type="image/webp" srcset="{{ imageUrl2x }}" media="(min-width: 1000px)">
+        {% endif %}
+        <img
+          alt="{{ image.alt }}"
+          src="{{ imageUrl }}"
+          loading="lazy"
+          class="responsive-image__figure-image"
+          style="width:100%; height:100%;"
+        />
+      </picture>
+
+      <span class="responsive-video__play-button">
+        {{ icon('play') }}
+      </span>
+  </a>
+{% endmacro %}
+
+{% macro caption(title, url) %}
+  <figcaption class="responsive-video__caption">
+    <a href="{{ url }}" class="body-small font-muted" target="_blank" rel="noopener">
+      {{ title }}
+    </a>
+  </figcaption>
+{% endmacro %}
