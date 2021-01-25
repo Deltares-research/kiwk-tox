@@ -13,13 +13,6 @@ eleventyComputed:
 
 {% from "../components/hero/hero.njk" import hero %}
 {% from "modular-content/index.njk" import modularContent %}
-{% from "../components/download-list/download-list.njk" import downloadList %}
 
 {{ hero(title=item.title, level='secondary') }}
-
-{% if item.slug === 'downloads' %}
-  {%- set localeDownloads = allDownloads | filterByLocale -%}
-  {{ downloadList(localeDownloads) }}
-{% else %}
-  {{ modularContent(item.body) }}
-{% endif %}
+{{ modularContent(item.body) }}

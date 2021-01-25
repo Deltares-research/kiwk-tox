@@ -1,0 +1,16 @@
+---
+layout: base
+pagination:
+  data: download
+  size: 1
+  alias: item
+permalink: /{{ item.locale }}/
+eleventyComputed:
+  locale: "{{ item.locale }}"
+---
+
+{% from "../components/download-list/download-list.njk" import downloadList %}
+
+{# {%- set localeDownloads = allDownloads | filterByLocale -%} #}
+{{ hero(title=item.title, level='secondary') }}
+{# {{ downloadList(item.downloads) }} #}

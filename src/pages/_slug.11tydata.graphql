@@ -50,11 +50,4 @@ query PageSlug($locale: SiteLocale) {
       }
     }
   }
-  allDownloads(locale: $locale) {
-    body
-    file {
-      url
-      filename
-    }
-  }
 }
