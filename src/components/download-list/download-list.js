@@ -1,3 +1,5 @@
+import List from 'list.js';
+
 const component = document.querySelector('[data-downloads]');
 const filter = document.querySelector('[data-downloads-filter]');
 const sort = document.querySelector('[data-downloads-sort]');
