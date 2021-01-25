@@ -64,5 +64,5 @@ h6 {
 }
 
 .font-strong {
-  font-family: $font-sans-bold;
+  @include fontWeight(bold);
 }
