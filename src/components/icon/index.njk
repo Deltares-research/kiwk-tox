@@ -1,8 +1,10 @@
 {# components A-Z #}
 {% from "icon/external.njk" import external %}
+{% from "icon/download.njk" import download %}
 
 {% set componentByType = {
-  external: external
+  external: external,
+  download: download
 } %}
 
 {% macro icon(type) %}
