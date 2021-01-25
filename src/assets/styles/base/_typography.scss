@@ -11,16 +11,18 @@ h6 {
 // sizes
 .h1 {
   font-size: 5rem;
+  @include fontWeight(bold);
 }
 
 .h2 {
   font-size: 3rem;
+  @include fontWeight(bold);
 }
 
 .h3 {
   font-size: 2.5rem;
   font-family: $font-sans;
-  font-weight: 400;
+  @include fontWeight(regular);
 }
 
 .body {
@@ -41,7 +43,7 @@ h6 {
 
 // types
 .font-sans {
-  font-family: $font-base;
+  font-family: $font-sans;
 }
 
 .font-serif {

@@ -11,6 +11,10 @@
       border-bottom-color: transparent;
     }
   }
+
+  strong {
+    @include fontWeight(bold);
+  }
 }
 
 .quote__author {
