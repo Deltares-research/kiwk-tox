@@ -4,13 +4,13 @@ pagination:
   data: download
   size: 1
   alias: item
-permalink: /{{ item.locale }}/
+permalink: /{{ item.locale }}/{{ item.slug }}/
 eleventyComputed:
   locale: "{{ item.locale }}"
 ---
 
+{% from "../components/hero/hero.njk" import hero %}
 {% from "../components/download-list/download-list.njk" import downloadList %}
 
-{# {%- set localeDownloads = allDownloads | filterByLocale -%} #}
 {{ hero(title=item.title, level='secondary') }}
-{# {{ downloadList(item.downloads) }} #}
+{{ downloadList(item.downloads) }}
