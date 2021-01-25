@@ -1,35 +1,65 @@
 .tree {
   &__branch {
-    margin-bottom: 1rem;
-
-    &--tip {
-      background-color: greenyellow;
+    &__arrow {
+      margin: $unit-small 0 $unit-xsmall;
     }
   }
 
   &__question {
-    border: thin solid #dbdbdb;
-    padding: 1rem;
-    margin: 0;
+    margin-bottom: $unit-xsmall;
+  }
+
+  &__content-link {
+    position: relative;
+    margin-bottom: $unit-xsmall;
+    color: $color-brand-purple;
+    text-decoration: none;
+    padding-left: 1.2rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 6px);
+      left: 0;
+      transition: transform 0.2s ease-out;
+      border: 6px solid transparent;
+      border-left-color: $color-brand-purple;
+    }
+
+    &:hover::before {
+      transform: translateX(0.5rem);
+    }
+  }
+
+  &__preamble {
+    margin-bottom: 0.5rem;
   }
 
   &__answers {
     display: flex;
+    justify-content: space-between;
   }
 
   &__answer {
     flex-basis: 50%;
-    border: thin solid #dbdbdb;
-    padding: 1rem;
-    margin: 0;
+    padding: 1rem 1.2rem;
+    border: 1px solid $color-brand-purple;
+    border-radius: $border-radius;
+    color: $color-brand-purple;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
     cursor: pointer;
 
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
     &:not(.tree__answer--selected):hover {
-      background: #eaeaea;
+      background-color: rgba($color-brand-ochre, 0.25);
     }
 
     &--selected {
-      background: aliceblue;
+      background-color: $color-brand-ochre;
+      border-color: $color-brand-ochre;
       cursor: default;
     }
   }

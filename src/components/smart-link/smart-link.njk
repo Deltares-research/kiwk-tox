@@ -1,0 +1,20 @@
+{% macro link(title=false, pageSlug=false, url=false, locale, classes) %}
+  {% if url %}
+    {% set href = url %}
+  {% elif pageSlug %}
+    {% set href = locale + '/' + pageSlug %}
+  {% else %}
+    <script>console.warn('[MACRO smart-link.link]: Please specify either a page slug or an external url');</script>
+  {% endif %}
+
+  <a
+    href="{{ href }}"
+    class="{{ classes }}"
+    {% if url %}
+      target="_blank"
+      rel="noopener"
+    {% endif %}
+  >
+    {{ title }}
+  </a>
+{% endmacro %}

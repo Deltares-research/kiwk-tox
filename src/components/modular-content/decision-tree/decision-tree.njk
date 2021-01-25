@@ -1,42 +1,80 @@
 {% macro decisionTree(blockData) %}
-<div class="container">
-  <div id="decision-tree-app">
-    <decision-tree :tree-data="{{ blockData | vueData }}"></decision-tree>
+<div class="section">
+  <div id="ID-{{ blockData.decisionTree.id }}">
+    <template v-for="(option, index) in options">
+      <div
+        v-if="choices.includes(option.slug)"
+        class="tree__branch"
+      >
+        <!-- The arrow -->
+        <div
+          v-if="index > 0"
+          class="tree__branch__arrow"
+        >
+          {% icon "arrow-down" %}
+        </div>
+
+        <!-- We wrap everything with double moustache template strings in `raw` -->
+        {% raw %}
+          <!-- The question/result -->
+          <p
+            v-if="option.isEndResult"
+            class="tree__preamble body-small"
+          >
+            {{ resultPreamble }}
+          </p>
+          <p
+            v-if="option.content && option.content.length"
+            class="h3 tree__question"
+          >
+            {{ option.content }}
+          </p>
+          <template v-if="option.linkedContent">
+            <a
+              v-if="option.linkedContent.externalUrl"
+              :href="option.linkedContent.externalUrl"
+              target="_blank"
+              rel="noopener"
+              class="tree__content-link"
+            >
+              {{ option.linkedContent.title }}
+            </a>
+            <a
+              v-if="option.linkedContent.internalPage"
+              :href="`/${ locale }/${ option.linkedContent.internalPage.slug }`"
+              :target="option.isEndResult ? '' : '_blank'"
+              class="tree__content-link"
+            >
+              {{ option.linkedContent.title }}
+            </a>
+          </template>
+
+          <!-- The answers/choices -->
+          <template v-if="option.choices && option.choices.length">
+            <p class="body-small tree__preamble">
+              {{ choicePreamble }}
+            </p>
+            <div class="tree__answers">
+              <p
+                v-for="(choice, index) in option.choices"
+                class="body-small tree__answer"
+                :class="{ 'tree__answer--selected': option.selection === choice.targetSlug }"
+                @click="addChoice(option, choice.targetSlug)"
+              >
+                <span class="font-strong">
+                  {{ indexToLetter(index, true) }}:
+                </span>
+                {{ choice.content }}
+              </p>
+            </div>
+          </template>
+        {% endraw %}
+      </div>
+    </template>
   </div>
 </div>
 
-<script type="text/html" id="decision-tree-template">
-{% raw %}
-  <template v-for="option in options">
-    <div
-      v-if="choices.includes(option.slug)"
-      class="tree__branch"
-      :class="{ 'tree__branch--tip': option.isEndResult }"
-    >
-      <p
-        v-if="option.content && option.content.length"
-        class="tree__question"
-      >
-        {{ option.content }}
-      </p>
-      <div
-        v-if="option.choices && option.choices.length"
-        class="tree__answers"
-      >
-        <p
-          v-for="choice in option.choices"
-          class="tree__answer"
-          :class="{ 'tree__answer--selected': option.selection === choice.targetSlug }"
-          @click="addChoice(option, choice.targetSlug)"
-        >
-          {{ choice.content }}
-        </p>
-      </div>
-    </div>
-  </template>
-{% endraw %}
-</script>
-
-<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vue@3.0.5/dist/vue.global.prod.js"></script>
 <script src="{{ '/assets/scripts/decision-tree.js' | url }}"></script>
+<script>createDecisionTree({{ blockData | json }}, '{{ locale }}');</script>
 {% endmacro %}

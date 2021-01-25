@@ -32,10 +32,18 @@ query PageSlug($locale: SiteLocale) {
         _modelApiKey
         decisionTree {
           id
-          name
+          choicePreamble
+          resultPreamble
           branches {
             slug
             content
+            linkedContent {
+              title
+              internalPage {
+                slug
+              }
+              externalUrl
+            }
             isEndResult
             choices {
               content
