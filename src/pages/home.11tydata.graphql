@@ -32,13 +32,12 @@ query Home($locale: SiteLocale) {
           }
         }
       }
-<<<<<<< HEAD
       ... on QuoteRecord {
         _modelApiKey
         body
         source
         author
-=======
+      }
       ... on ImageRecord {
         _modelApiKey
         image {
@@ -75,7 +74,6 @@ query Home($locale: SiteLocale) {
           width
           height
         }
->>>>>>> main
       }
     }
   }
