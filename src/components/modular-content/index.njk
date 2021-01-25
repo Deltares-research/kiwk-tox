@@ -6,6 +6,7 @@
 {% from "modular-content/link-list/link-list.njk" import linkList %}
 {% from "modular-content/external-tools/external-tools.njk" import externalTools %}
 {% from "modular-content/card-grid/card-grid.njk" import cardGrid %}
+{% from "modular-content/responsive-video/responsive-video.njk" import responsiveVideo %}
 
 {% set componentByType = {
   rich_text: richText,
@@ -14,7 +15,8 @@
   external_tool_embed: iframeEmbed,
   link_list: linkList,
   external_tool_list: externalTools,
-  card_grid: cardGrid
+  card_grid: cardGrid,
+  video: responsiveVideo
 } %}
 
 {% macro modularContent(items, context) %}
