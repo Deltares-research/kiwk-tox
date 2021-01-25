@@ -59,4 +59,8 @@ module.exports = {
 
     return `${baseString}${slug}/`;
   },
+
+  createStringParameters: function (url, params) {
+    return url + '?' + Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  }
 };

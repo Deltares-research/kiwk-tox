@@ -3,11 +3,22 @@ query App($locale: SiteLocale) {
     items {
       name
       page {
-        slug
+        ... on PageRecord {
+          slug
+        }
+        ... on DownloadRecord {
+          slug
+        }
       }
       subMenuItems {
-        title
-        slug
+        ... on PageRecord {
+          title
+          slug
+        }
+        ... on DownloadRecord {
+          title
+          slug
+        }
       }
     }
   }
