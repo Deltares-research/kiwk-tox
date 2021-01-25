@@ -1,12 +1,21 @@
 {% macro decisionTree(blockData) %}
 <div class="section">
   <div id="ID-{{ blockData.decisionTree.id }}">
-    {% raw %}
-      <template v-for="option in options">
+    <template v-for="(option, index) in options">
+      <div
+        v-if="choices.includes(option.slug)"
+        class="tree__branch"
+      >
+        <!-- The arrow -->
         <div
-          v-if="choices.includes(option.slug)"
-          class="tree__branch"
+          v-if="index > 0"
+          class="tree__branch__arrow)"
         >
+          {% icon "arrow-down" %}
+        </div>
+
+        <!-- We wrap everything with double moustache template strings in `raw` -->
+        {% raw %}
           <!-- The question/result -->
           <p
             v-if="option.isEndResult"
@@ -59,9 +68,9 @@
               </p>
             </div>
           </template>
-        </div>
-      </template>
-    {% endraw %}
+        {% endraw %}
+      </div>
+    </template>
   </div>
 </div>
 

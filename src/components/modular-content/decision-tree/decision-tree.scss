@@ -1,18 +1,16 @@
 .tree {
   &__branch {
-    &:not(:first-child)::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 28px;
-      margin: 2rem 0 1.5rem;
-      background-image: url('/assets/icons/arrow-down.svg');
-      background-size: cover;
-      background-position: center;
-    }
+    // &:not(:first-child)::before {
+    //   content: '';
+    //   display: block;
+    //   width: 20px;
+    //   height: 28px;
+    //   margin: 2rem 0 1.5rem;
+    // }
 
-    &--tip {
-      background-color: greenyellow;
+    &__arrow {
+      background: red;
+      margin: 2rem 0 1.5rem;
     }
   }
 
