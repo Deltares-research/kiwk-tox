@@ -47,11 +47,14 @@
             </p>
             <div class="tree__answers">
               <p
-                v-for="choice in option.choices"
+                v-for="(choice, index) in option.choices"
                 class="tree__answer"
                 :class="{ 'tree__answer--selected': option.selection === choice.targetSlug }"
                 @click="addChoice(option, choice.targetSlug)"
               >
+                <span class="font-strong">
+                  {{ indexToLetter(index, true) }}:
+                </span>
                 {{ choice.content }}
               </p>
             </div>

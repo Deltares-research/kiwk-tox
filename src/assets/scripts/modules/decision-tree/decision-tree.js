@@ -1,3 +1,5 @@
+import { preSelectBranches, indexToLetter } from '../lib/utils';
+
 const createDecisionTree = ({ decisionTree }, locale) => {
   const { id, branches, choicePreamble, resultPreamble } = decisionTree;
   const STORAGE_KEY = `tree-${ id }`;
@@ -5,17 +7,7 @@ const createDecisionTree = ({ decisionTree }, locale) => {
   const storedChoices = sessionStorage && sessionStorage.getItem(STORAGE_KEY);
   const parsedChoices = storedChoices && JSON.parse(storedChoices);
   const choices = parsedChoices || [ branches[0].slug ];
-
-  const options = branches.map(branch => {
-    if(choices.includes(branch.slug)) {
-      branch.selection = choices.filter(choice => branch.choices
-        .map(({ targetSlug }) => targetSlug)
-        .includes(choice))
-        [0]
-      ;
-    }
-    return branch;
-  });
+  const options = preSelectBranches(branches, choices);
 
   Vue.createApp({
     data: () => ({
@@ -56,6 +48,8 @@ const createDecisionTree = ({ decisionTree }, locale) => {
           sessionStorage.setItem(STORAGE_KEY, JSON.stringify(this.choices));
         }
       },
+
+      indexToLetter,
     },
   }).mount(`#ID-${ id }`);
 }
