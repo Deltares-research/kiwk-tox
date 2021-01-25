@@ -93,8 +93,9 @@
 {% endmacro %}
 
 {% macro caption(title, url) %}
-  <figcaption class="responsive-video__caption">
-    <a href="{{ url }}" class="body-small font-muted" target="_blank" rel="noopener">
+  <figcaption class="responsive-video__caption body-small font-muted">
+    Source:
+    <a href="{{ url }}" class="font-muted" target="_blank" rel="noopener">
       {{ title }}
     </a>
   </figcaption>

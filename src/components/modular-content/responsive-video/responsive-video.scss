@@ -63,6 +63,15 @@ $video-easing: cubic-bezier(0.215, 0.61, 0.355, 1);
   fill: white;
 }
 
+.responsive-video__caption {
+  margin-top: $unit-xsmall;
+}
+
 .responsive-video__caption a {
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
