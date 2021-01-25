@@ -2,6 +2,8 @@
 import 'focus-visible';
 
 // Internal Modules
+import initResponsiveVideo from './components/modular-content/responsive-video/responsive-video';
 import initToggle from './components/toggle/toggle';
 
+initResponsiveVideo();
 initToggle();

@@ -53,6 +53,18 @@ query Home($locale: SiteLocale) {
           label
         }
       }
+      ... on VideoRecord {
+        _modelApiKey
+        video {
+          title
+          thumbnailUrl
+          provider
+          url
+          providerUid
+          width
+          height
+        }
+      }
     }
   }
 }

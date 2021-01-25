@@ -1,0 +1,77 @@
+$video-play-button: 60px;
+$video-easing: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+.responsive-video {
+  position: relative;
+}
+
+.responsive-video__figure {
+  display: block;
+}
+
+.responsive-video__figure-inner {
+  position: relative;
+  height: 0;
+}
+
+.responsive-video__iframe,
+.responsive-video__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: inherit;
+}
+
+.responsive-video .responsive-image__picture {
+  height: 100%;
+}
+
+.responsive-video img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.responsive-video__play-button {
+  position: absolute;
+  top: calc(50% - #{$video-play-button * .5});
+  left: calc(50% - #{$video-play-button * .5});
+  z-index: 1;
+
+  width: $video-play-button;
+  height: $video-play-button;
+
+  color: $color-light;
+  background-color: rgba(black, .8);
+  border-radius: 50%;
+
+  transform-origin: center;
+  transition: transform .3s $video-easing;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.responsive-video__play-button svg {
+  position: absolute;
+  top: calc(50% - #{$video-play-button * .25});
+  left: calc(50% - #{$video-play-button * .2});
+  width: $video-play-button * .5;
+  height: $video-play-button * .5;
+  fill: white;
+}
+
+.responsive-video__caption {
+  margin-top: $unit-xsmall;
+}
+
+.responsive-video__caption a {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
