@@ -53,3 +53,7 @@
   background-color: $color-text;
   border-radius: 50%;
 }
+
+.rich-text strong {
+  @include fontWeight(bold);
+}

@@ -4,7 +4,9 @@
 
   background-color: $color-brand-ochre;
   border-radius: $border-radius;
-  font-family: $font-sans-bold;
+  font-family: $font-sans;
+  @include fontWeight(bold);
+
   color: $color-text;
   text-decoration: none;
 

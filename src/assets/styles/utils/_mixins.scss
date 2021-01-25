@@ -79,3 +79,15 @@
   background-color: transparent;
   -webkit-appearance: none;
 }
+
+@mixin fontWeight($weight: regular) {
+  @if $weight == regular {
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
+  }
+
+  @if $weight == bold {
+    font-weight: 500;
+    font-variation-settings: 'wght' 500;
+  }
+}

@@ -44,10 +44,12 @@ $sub-toggle-size: 30px;
   padding-bottom: .55em;
 
   text-decoration: none;
+  @include fontWeight(bold);
 }
 
 .mobile-navigation__item--active .mobile-navigation__link {
-  font-family: $font-sans-bold;
+  font-family: $font-sans;
+  @include fontWeight(bold);
 }
 
 .mobile-navigation__link:before {
