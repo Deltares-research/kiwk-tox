@@ -1,9 +1,11 @@
 {% macro iframeEmbed(blockData) %}
-<div class="container">
-  <iframe
-    src="{{ blockData.targetUrl }}"
-    width="100%"
-    height="650"
-  ></iframe>
+<div class="section iframe-embed">
+  <div class="container iframe-embed__inner">
+    <iframe
+      src="{{ blockData.targetUrl }}"
+      width="100%"
+      height="650"
+    ></iframe>
+  </div>
 </div>
 {% endmacro %}
