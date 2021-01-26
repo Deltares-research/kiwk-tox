@@ -1,7 +1,9 @@
-const CACHE_NAME = `cache-${Date.now()}`;
-const OFFLINE_PAGE_URL = '/offline/';
+// @TODO :: Replace the .njk file with this one
+
+const CACHE_NAME = `cache-${ Date.now() }`;
+const OFFLINE_PAGE_URL = '/nl/offline/';
 const PRECACHE_RESOURCES = [];
-const IGNORED_HOSTS = ['localhost'];
+const IGNORED_HOSTS = [ 'localhost' ];
 
 // On Install
 self.addEventListener('install', (event) => {
