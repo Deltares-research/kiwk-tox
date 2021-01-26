@@ -9,6 +9,7 @@
 {% from "modular-content/card-grid/card-grid.njk" import cardGrid %}
 {% from "modular-content/title/title.njk" import title %}
 {% from "modular-content/responsive-video/responsive-video.njk" import responsiveVideo %}
+{% from "modular-content/download-link/download-link.njk" import downloadLink %}
 
 {% set componentByType = {
   rich_text: richText,
@@ -20,7 +21,8 @@
   external_tool_list: externalTools,
   card_grid: cardGrid,
   title: title,
-  video: responsiveVideo
+  video: responsiveVideo,
+  download_link: downloadLink
 } %}
 
 {% macro modularContent(items) %}

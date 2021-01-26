@@ -1,0 +1,15 @@
+{% from "../../button/button.njk" import button %}
+
+{% macro downloadLink(blockData) %}
+  {%- set slug = blockData.file.file.url -%}
+  <div class="section">
+    {% if blockData.body %}
+      <div class="container container--width-small font-serif">
+        {{ blockData.body | safe }}
+      </div>
+    {% endif %}
+    <p class="download-link__actions container container--width-small">
+      {{ button(slug=slug, title=blockData.title, iconType='download', external=true) }}
+    </p>
+  </div>
+{% endmacro %}

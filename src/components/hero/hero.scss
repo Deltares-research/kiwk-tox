@@ -49,6 +49,16 @@
   }
 }
 
+.hero__intro p a {
+  color: $color-brand-ochre;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $color-brand-ochre;
+  }
+}
+
 .hero--secondary .hero__inner {
   width: 100%;
   flex-grow: 2;

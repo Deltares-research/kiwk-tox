@@ -1,6 +1,13 @@
-{% macro button(slug, title, type='primary', iconType=false) %}
+{% macro button(slug, title, type='primary', iconType=false, external=false) %}
   {% if slug %}
-    <a href="{{ slug }}" class="button button--{{ type }}{% if iconType %} button--icon button--{{ iconType }}{% endif %}">
+    <a
+      href="{{ slug }}"
+      class="button button--{{ type }}{% if iconType %} button--icon button--{{ iconType }}{% endif %}"
+      {% if external %}
+      target="_blank"
+      rel="noreferrer noopener"
+      {% endif %}
+    >
       {{ title }}
 
       {% if iconType %}
