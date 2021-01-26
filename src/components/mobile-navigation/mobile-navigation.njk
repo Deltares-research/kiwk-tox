@@ -1,8 +1,16 @@
 {% macro mobileNavigation(items=false, strippedUrl=false, locale=false) %}
+  {%- set isHome = (locale == strippedUrl) -%}
   <nav
     class="mobile-navigation"
     id="mobile-navigation">
     <ol class="mobile-navigation__items container container--width-xsmall">
+      <li class="mobile-navigation__item{% if isHome %} mobile-navigation__item--active{% endif %}">
+        <a
+          class="font-light body-large mobile-navigation__link"
+          href="/{{ locale }}/">
+          Home
+        </a>
+      </li>
       {% for item in items %}
         {%- set isCurrent = (locale + '/' + item.page.slug == strippedUrl) -%}
         {%- set hasSubMenu = item.subMenuItems | length > 0 -%}
