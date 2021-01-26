@@ -16,9 +16,10 @@ module.exports = {
   absoluteUrl(url, base) {
     try {
       return new URL(url, base).toString();
-    } catch (e) {
+    }
+    catch(err) {
       console.error(
-        `Failing to convert ${url} with base ${base} to an absolute url.`
+        `Failing to convert ${ url } with base ${ base } to an absolute url.`
       );
       return url;
     }
