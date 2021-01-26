@@ -62,4 +62,7 @@
       {% endfor %}
     </ul>
   </article>
+
+  <script src="{{ '/assets/scripts/download-filter.js' | url }}"></script>
+  <script>initDownloadFilter({{ formats | json }});</script>
 {% endmacro %}

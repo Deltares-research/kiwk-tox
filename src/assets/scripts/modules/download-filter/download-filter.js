@@ -3,11 +3,10 @@ import List from 'list.js';
 const component = document.querySelector('[data-downloads]');
 const filter = document.querySelector('[data-downloads-filter]');
 const sort = document.querySelector('[data-downloads-sort]');
-const formats = Array.from(document.querySelectorAll('[data-downloads-format]'));
+const formatButtons = Array.from(document.querySelectorAll('[data-downloads-format]'));
 
-
-function initDownloadFilter() {
-  if(!component || !filter || !sort || !formats) {
+function initDownloadFilter(formats) {
+  if(!component || !filter || !sort || !formats || !formatButtons) {
     return
   }
 
@@ -25,7 +24,7 @@ function initDownloadFilter() {
 
   sort.addEventListener('click', handleSort);
   filter.addEventListener('submit', event => event.preventDefault());
-  formats.forEach(format => format.addEventListener('click', () => handleFormat(format) ))
+  formatButtons.forEach(format => format.addEventListener('click', () => handleFormat(format) ))
 
   function handleSort() {
     sortActive = !sortActive;
@@ -57,4 +56,4 @@ function initDownloadFilter() {
   }
 }
 
-export default initDownloadFilter;
+window.initDownloadFilter = window.initDownloadFilter || initDownloadFilter;
