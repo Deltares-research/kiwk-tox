@@ -10,35 +10,80 @@ h6 {
 
 // sizes
 .h1 {
-  font-size: 5rem;
+  font-size: 3.5rem;
   @include fontWeight(bold);
+  @include hyphenate();
+
+  @media (min-width: 800px) {
+    font-size: 4rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 5rem;
+  }
 }
 
 .h2 {
-  font-size: 3rem;
+  font-size: 2.2rem;
   @include fontWeight(bold);
+
+  @media (min-width: 800px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 3rem;
+  }
 }
 
 .h3 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: $font-sans;
   @include fontWeight(regular);
+
+  @media (min-width: 800px) {
+    font-size: 2.2rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 2.5rem;
+  }
 }
 
 .body {
-  font-size: $font-size-base;
+  font-size: 1.6rem;
+
+  @media (min-width: 800px) {
+    font-size: $font-size-base;
+  }
 }
 
 .body-xlarge {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
+
+  @media (min-width: 800px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 3.5rem;
+  }
 }
 
 .body-large {
-  font-size: 2rem;
+  font-size: 1.8rem;
+
+  @media (min-width: 800px) {
+    font-size: 2rem;
+  }
 }
 
 .body-small {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+
+  @media (min-width: 800px) {
+    font-size: 1.6rem;
+  }
 }
 
 // types
