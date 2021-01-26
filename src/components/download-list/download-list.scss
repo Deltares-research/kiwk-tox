@@ -9,8 +9,69 @@ $download-icon-small: 60px;
   background-color: $color-light;
 }
 
+// ================================ filter
+.downloads-list__filter {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.downloads-list__filter > * + * {
+  margin-left: $unit-medium;
+}
+
+.downloads-list__filter-formats {
+  display: flex;
+}
+
+.downloads-list__filter-formats > * + * {
+  margin-left: .3em;
+}
+
+.downloads-list__filter-button {
+  appearance: none;
+  outline: none;
+
+  display: block;
+  padding: .1em .8em;
+
+  background-color: transparent;
+  border-radius: 20px;
+  border: 1px solid $color-grey;
+  color: $color-grey-dark;
+
+  &--active {
+    background-color: $color-grey;
+    color: $color-text;
+  }
+}
+
+.downloads-list__filter-name .downloads-list__filter-button {
+  &:after {
+    content: '';
+    display: inline-block;
+    margin-left: .2em;
+    vertical-align: sub;
+
+    border: .35em solid transparent;
+    border-top-color: $color-dark;
+
+    transform-origin: 50% 25%;
+  }
+
+  &[data-downloads-sort="desc"]:after {
+    transform: rotate(180deg);
+  }
+}
+
+// ================================ items
 .download-list__items {
   list-style: none;
+
+  &:not(:first-child) {
+    margin-top: $unit-medium;
+  }
 }
 
 .download-list__item + .download-list__item {

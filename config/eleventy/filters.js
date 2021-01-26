@@ -75,4 +75,14 @@ module.exports = {
     }
     return translation;
   },
+
+  getFileFormatsCollection(array) {
+    if(!array || !array.length) {
+      console.warn('reduceOptions: array is: ', array);
+      return;
+    }
+
+    const allOptions = array.map(item => item.file.format);
+    return Array.from(new Set(allOptions));
+  }
 };
