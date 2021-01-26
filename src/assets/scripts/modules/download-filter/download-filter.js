@@ -1,12 +1,12 @@
 import List from 'list.js';
 
-const component = document.querySelector('[data-downloads]');
-const filter = document.querySelector('[data-downloads-filter]');
-const sort = document.querySelector('[data-downloads-sort]');
-const formatButtons = Array.from(document.querySelectorAll('[data-downloads-format]'));
+const $component = document.querySelector('[data-downloads]');
+const $filter = document.querySelector('[data-downloads-filter]');
+const $sort = document.querySelector('[data-downloads-sort]');
+const $formatButtons = Array.from(document.querySelectorAll('[data-downloads-format]'));
 
-function initDownloadFilter(formats) {
-  if(!component || !filter || !sort || !formats || !formatButtons) {
+function initDownloadFilter() {
+  if(!$component || !$filter || !$sort || !$formatButtons) {
     return
   }
 
@@ -18,20 +18,20 @@ function initDownloadFilter(formats) {
     ]
   };
 
-  const list = new List(component, options);
+  const list = new List($component, options);
   let sortActive
   let activeFormats = []
 
-  sort.addEventListener('click', handleSort);
-  filter.addEventListener('submit', event => event.preventDefault());
-  formatButtons.forEach(format => format.addEventListener('click', () => handleFormat(format) ))
+  $sort.addEventListener('click', handleSort);
+  $filter.addEventListener('submit', event => event.preventDefault());
+  $formatButtons.forEach(formatButton => formatButton.addEventListener('click', () => handleFormat(formatButton) ))
 
   function handleSort() {
     sortActive = !sortActive;
-    sort.classList.add('downloads-list__filter-button--active')
+    $sort.classList.add('downloads-list__filter-button--active')
 
     const order = sortActive ? 'desc' : 'asc'
-    sort.dataset.downloadsSort = order
+    $sort.dataset.downloadsSort = order
     list.sort('name', { order });
   }
 
