@@ -92,7 +92,7 @@
 
 {% macro caption(title, url) %}
   <figcaption class="responsive-video__caption body-small font-muted">
-    Source:
+    {{ 'source' | i18n }}:
     <a href="{{ url }}" class="font-muted" target="_blank" rel="noopener">
       {{ title }}
     </a>

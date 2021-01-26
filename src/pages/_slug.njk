@@ -15,4 +15,4 @@ eleventyComputed:
 {% from "modular-content/index.njk" import modularContent with context %}
 
 {{ hero(title=item.title, level='secondary') }}
-{{ modularContent(item.body) }}
+{{ modularContent(item.sections) }}
