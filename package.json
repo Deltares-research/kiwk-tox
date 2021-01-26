@@ -6,7 +6,7 @@
     "defaults"
   ],
   "scripts": {
-    "clean": "del-cli dist",
+    "clean": "rimraf dist",
     "revision": "node config/build-scripts/revision.js",
     "eleventy:dev": "cross-env ELEVENTY_ENV=development eleventy --serve",
     "eleventy:prod": "cross-env ELEVENTY_ENV=production eleventy",
