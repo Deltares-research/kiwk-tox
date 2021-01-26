@@ -10,7 +10,7 @@ query PageSlug($locale: SiteLocale) {
         url
       }
     }
-    body {
+    sections {
       ... on RichTextRecord {
         _modelApiKey
         richText
