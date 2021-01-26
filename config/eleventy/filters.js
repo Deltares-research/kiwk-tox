@@ -16,9 +16,10 @@ module.exports = {
   absoluteUrl(url, base) {
     try {
       return new URL(url, base).toString();
-    } catch (e) {
+    }
+    catch(err) {
       console.error(
-        `Failing to convert ${url} with base ${base} to an absolute url.`
+        `Failing to convert ${ url } with base ${ base } to an absolute url.`
       );
       return url;
     }
@@ -62,6 +63,17 @@ module.exports = {
 
   createStringParameters: function (url, params) {
     return url + '?' + Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  },
+
+  i18n: function(key) {
+    const { locale, translations } = this.ctx;
+    const translation = translations?.[locale]?.[key];
+    if(!translation) {
+      console.warn('Can\'t find translation for: ', key, locale);
+      console.warn('When using i18n in a macro, please import it "with context"');
+      return '';
+    }
+    return translation;
   },
 
   getFileFormatsCollection(array) {
