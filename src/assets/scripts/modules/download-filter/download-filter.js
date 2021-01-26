@@ -24,7 +24,7 @@ function initDownloadFilter() {
 
   $sort.addEventListener('click', handleSort);
   $filter.addEventListener('submit', event => event.preventDefault());
-  $formatButtons.forEach(formatButton => formatButton.addEventListener('click', () => handleFormat(formatButton) ))
+  $formatButtons.forEach($formatButton => $formatButton.addEventListener('click', () => handleFormat($formatButton) ))
 
   function handleSort() {
     sortActive = !sortActive;
