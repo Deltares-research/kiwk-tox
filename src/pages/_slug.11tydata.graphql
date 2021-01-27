@@ -55,6 +55,7 @@ query PageSlug($locale: SiteLocale) {
       ... on ExternalToolEmbedRecord {
         _modelApiKey
         targetUrl
+        height
       }
     }
   }
