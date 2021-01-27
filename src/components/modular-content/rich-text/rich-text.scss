@@ -29,20 +29,22 @@
 
 .rich-text li {
   position: relative;
-  padding-left: 1.3em;
+  padding-left: 1.6em;
+}
+
+.rich-text li + li {
+  margin-top: .5em;
 }
 
 .rich-text ul li:before,
 .rich-text ol li:before {
   position: absolute;
   left: 0;
-  opacity: .5;
 }
 
 .rich-text ol li:before {
   content: counter(ol) '. ';
-  top: .3em;
-  font-size: .8em;
+  top: 0;
 }
 
 .rich-text ul li:before {
