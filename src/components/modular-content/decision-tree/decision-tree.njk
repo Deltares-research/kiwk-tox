@@ -1,6 +1,6 @@
 {% macro decisionTree(blockData) %}
 <div class="section">
-  <div id="ID-{{ blockData.decisionTree.id }}">
+  <div id="ID-{{ blockData.decisionTree.id }}" class="container container--width-medium">
     <template v-for="(option, index) in options">
       <div
         v-if="choices.includes(option.slug)"
@@ -9,7 +9,7 @@
         <!-- The arrow -->
         <div
           v-if="index > 0"
-          class="tree__branch__arrow"
+          class="tree__branch-arrow"
         >
           {% icon "arrow-down" %}
         </div>

@@ -3,7 +3,7 @@
     <ul class="language-select__options">
       {% for siteLocale in meta.locales %}
         {%- set altSlug = languageAlts | inferAltSlug(siteLocale) -%}
-        <li class="language-select__option language-select__option--{{ siteLocale }} body-small">
+        <li class="language-select__option language-select__option--{{ siteLocale }}">
           {% if siteLocale == locale %}
             <a href="/{{ siteLocale }}/">
               {{ siteLocale }}

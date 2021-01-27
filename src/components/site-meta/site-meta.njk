@@ -1,4 +1,4 @@
-{%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(meta.url) }}{%- endset -%}
+{%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(env.baseUrl) }}{%- endset -%}
 
 {# General #}
 <meta name="description" content="{{ description or meta.description }}">
@@ -12,7 +12,7 @@
 <meta property="og:locale" content="{{ locale }}">
 <meta name="twitter:card" content="{% if image -%}summary_large_image{% else %}summary{% endif %}">
 {%- if image -%}
-  <meta property="og:image" content="{{ image | url | absoluteUrl(meta.url) }}">
+  <meta property="og:image" content="{{ image | url | absoluteUrl(env.baseUrl) }}">
 {%- endif -%}
 
 {# Favicon #}

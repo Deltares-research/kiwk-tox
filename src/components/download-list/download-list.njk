@@ -1,8 +1,43 @@
 {% macro downloadList(items) %}
-  <article class="download-list container section">
-    <ul class="download-list__items">
+  {%- set formats = items | getFileFormatsCollection -%}
+
+  <article
+    class="download-list container section"
+    data-downloads
+  >
+    <form
+      class="downloads-list__filter"
+      data-downloads-filter
+    >
+      <p class="body-small font-muted">Filter:</p>
+      <div class="downloads-list__filter-formats">
+        {% for format in formats %}
+          <button
+            class="downloads-list__filter-button body-small"
+            data-downloads-format="{{ format }}"
+          >
+            {{ format }}
+          </button>
+        {% endfor %}
+      </div>
+
+      <div class="downloads-list__filter-name">
+        <button
+          class="downloads-list__filter-button body-small"
+          data-downloads-sort
+        >
+          name
+        </button>
+      </div>
+    </form>
+
+    <ul class="download-list__items js-downloads-list">
       {% for item in items %}
-        <li class="download-list__item">
+        <li
+          class="download-list__item"
+          data-name="{{ item.file.filename }}"
+          data-format="{{ item.file.format }}"
+        >
           <a
             class="download-list__item-link"
             href="{{ item.file.url }}"
@@ -27,4 +62,7 @@
       {% endfor %}
     </ul>
   </article>
+
+  <script src="{{ '/assets/scripts/download-filter.js' | url }}"></script>
+  <script>initDownloadFilter();</script>
 {% endmacro %}

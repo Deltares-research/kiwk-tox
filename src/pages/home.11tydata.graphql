@@ -75,6 +75,16 @@ query Home($locale: SiteLocale) {
           height
         }
       }
+      ... on DownloadLinkRecord {
+        _modelApiKey
+        title
+        body
+        file {
+          file {
+            url
+          }
+        }
+      }
     }
   }
 }

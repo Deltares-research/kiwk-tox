@@ -1,9 +1,10 @@
 .button {
   display: inline-block;
-  padding: .26em 1em .3em 1em;
+  padding: .3em 1em .3em 1em;
 
   background-color: $color-brand-ochre;
   border-radius: $border-radius;
+  font-size: $font-size-base;
   font-family: $font-sans;
   @include fontWeight(bold);
 
@@ -63,4 +64,13 @@
   vertical-align: top;
 
   stroke-width: 12px;
+}
+
+.button--icon.button--download svg {
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: .2em;
+  vertical-align: middle;
+
+  stroke-width: 7px;
 }
