@@ -11,9 +11,74 @@ query PageSlug($locale: SiteLocale) {
       }
     }
     sections {
+      ... on LinkListRecord {
+        id
+        _modelApiKey
+        title
+        items {
+          title
+          body
+          link {
+            slug
+          }
+        }
+      }
       ... on RichTextRecord {
         _modelApiKey
         richText
+      }
+      ... on CardGridRecord {
+        id
+        _modelApiKey
+        title
+        items {
+          title
+          body
+          link {
+            slug
+          }
+        }
+      }
+      ... on QuoteRecord {
+        _modelApiKey
+        body
+        source
+        author
+      }
+      ... on ExternalToolListRecord {
+        _modelApiKey
+        items {
+          title
+          body
+          url
+          label
+        }
+      }
+      ... on TitleRecord {
+        _modelApiKey
+        title
+      }
+      ... on VideoRecord {
+        _modelApiKey
+        video {
+          title
+          thumbnailUrl
+          provider
+          url
+          providerUid
+          width
+          height
+        }
+      }
+      ... on DownloadLinkRecord {
+        _modelApiKey
+        title
+        body
+        file {
+          file {
+            url
+          }
+        }
       }
       ... on ImageRecord {
         _modelApiKey
@@ -27,6 +92,7 @@ query PageSlug($locale: SiteLocale) {
             aspectRatio
           }
         }
+        body
       }
       ... on DecisionTreeModularBlockRecord {
         _modelApiKey
