@@ -1,0 +1,11 @@
+.iframe-embed {
+  position: relative;
+}
+
+.iframe-embed__inner {
+  background-color: $color-grey-light;
+}
+
+.iframe-embed iframe {
+  border: none;
+}
