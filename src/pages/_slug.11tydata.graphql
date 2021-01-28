@@ -114,6 +114,13 @@ query PageSlug($locale: SiteLocale) {
             choices {
               content
               targetSlug
+              helpLink {
+                title
+                internalPage {
+                  slug
+                }
+                externalUrl
+              }
             }
           }
         }

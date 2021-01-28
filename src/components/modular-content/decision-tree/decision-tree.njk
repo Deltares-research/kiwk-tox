@@ -65,6 +65,18 @@
                   {{ indexToLetter(index, true) }}:
                 </span>
                 {{ choice.content }}
+                <template v-if="choice.helpLink" >
+                  <br />
+                  <a
+                    @click.stop
+                    :href="choice.helpLink.externalUrl ? choice.helpLink.externalUrl : `/${ locale }/${ choice.helpLink.internalPage.slug }`"
+                    target="_blank"
+                    rel="noopener"
+                    class="tree__content-link"
+                  >
+                    {{ choice.helpLink.title }}
+                  </a>
+                </template>
               </p>
             </div>
           </template>
