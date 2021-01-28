@@ -1,5 +1,6 @@
 .tree__branch-arrow {
-  margin: $unit-small 0 $unit-xsmall;
+  margin-top: $unit-medium;
+  margin-bottom: $unit-medium;
 }
 
 .tree__branch-arrow svg {
@@ -20,24 +21,34 @@
 
 .tree__content-link {
   position: relative;
+  display: block;
   margin-bottom: $unit-xsmall;
-  color: $color-brand-purple;
-  text-decoration: none;
+  padding-right: $unit-xsmall;
   padding-left: 1.2rem;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: calc(50% - 6px);
-    left: 0;
-    transition: transform 0.2s ease-out;
-    border: 6px solid transparent;
-    border-left-color: $color-brand-purple;
+  color: $color-brand-purple;
+  text-decoration: none;
+
+  transition: transform .1s ease-out;
+
+  .tree__answer & {
+    margin-top: $unit-xsmall;
+    margin-bottom: 0;
   }
 
-  &:hover::before {
-    transform: translateX(0.5rem);
+  &:hover {
+    transform: translateX($unit-xsmall);
   }
+}
+
+.tree__content-link::before {
+  content: '';
+  position: absolute;
+  top: .4em;
+  left: 0;
+
+  border: 6px solid transparent;
+  border-left-color: $color-brand-purple;
 }
 
 .tree__preamble {
