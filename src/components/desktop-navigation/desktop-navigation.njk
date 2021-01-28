@@ -1,11 +1,12 @@
 {% macro desktopNavigation(items=false, strippedUrl=false, locale=false) %}
+  {%- set baseId = 'desktop-navigation-submenu-' -%}
 
   <nav class="desktop-navigation">
     <ol class="desktop-navigation__items">
       {% for item in items %}
         {%- set isCurrent = (locale + '/' + item.page.slug == strippedUrl) -%}
         {%- set hasSubMenu = item.subMenuItems | length > 0 -%}
-        {%- set id = 'desktop-navigation-submenu-' + loop.index0 -%}
+        {%- set id = baseId + loop.index0 -%}
         <li class="desktop-navigation__item{% if isCurrent %} desktop-navigation__item--active{% endif %}{% if hasSubMenu %} desktop-navigation__item--is-submenu{% endif %}">
 
           <a class="desktop-navigation__item-link" href="/{{ locale }}/{{ item.page.slug }}">
@@ -26,14 +27,18 @@
             <a
               class="desktop-navigation__toggle desktop-navigation__toggle--close"
               href="#"
-              data-toggle data-toggle-id="{{ id }}"
+              data-toggle
+              data-toggle-id="{{ id }}"
+              data-toggle-reset-id="{{ baseId }}"
             >
               <span class="sr-only">Close</span>
             </a>
             <a
               class="desktop-navigation__toggle desktop-navigation__toggle--open"
               href="#{{ id }}"
-              data-toggle data-toggle-id="{{ id }}"
+              data-toggle
+              data-toggle-id="{{ id }}"
+              data-toggle-reset-id="{{ baseId }}"
             >
               <span class="sr-only">Open</span>
             </a>
