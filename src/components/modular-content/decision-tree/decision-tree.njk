@@ -59,7 +59,9 @@
                 v-for="(choice, index) in option.choices"
                 class="body-small tree__answer"
                 :class="{ 'tree__answer--selected': option.selection === choice.targetSlug }"
+                tabindex="0"
                 @click="addChoice(option, choice.targetSlug)"
+                @keydown.enter="addChoice(option, choice.targetSlug)"
               >
                 <span class="font-strong">
                   {{ indexToLetter(index, true) }}:

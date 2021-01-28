@@ -13,6 +13,13 @@
           </a>
 
           {% if hasSubMenu %}
+            <a
+              class="desktop-navigation__toggle desktop-navigation__toggle--open"
+              href="#{{ id }}"
+              data-toggle data-toggle-id="{{ id }}"
+            >
+              <span class="sr-only">Open</span>
+            </a>
             <ol class="desktop-navigation__subitems" id="{{ id }}">
               {% for subItem in item.subMenuItems %}
                 <li>
@@ -30,17 +37,10 @@
             >
               <span class="sr-only">Close</span>
             </a>
-            <a
-              class="desktop-navigation__toggle desktop-navigation__toggle--open"
-              href="#{{ id }}"
-              data-toggle data-toggle-id="{{ id }}"
-            >
-              <span class="sr-only">Open</span>
-            </a>
           {% endif %}
 
         </li>
       {% endfor %}
-    <ol>
+    </ol>
   </nav>
 {% endmacro %}
