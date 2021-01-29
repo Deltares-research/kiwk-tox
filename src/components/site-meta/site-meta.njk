@@ -1,18 +1,19 @@
 {%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(env.baseUrl) }}{%- endset -%}
+{%- set seoMeta = item.seoMeta -%}
 
 {# General #}
-<meta name="description" content="{{ description or meta.description }}">
+<meta name="description" content="{{ seoMeta.description or description }}">
 <link rel="canonical" href="{{ absolutePageUrl }}">
 
 {# Open Graph #}
 <meta property="og:site_name" content="{{ meta.title }}">
-<meta property="og:title" content="{{ title or meta.title }}">
-<meta property="og:description" content="{{ description  or meta.description }}">
+<meta property="og:title" content="{{ seoMeta.title or title }}">
+<meta property="og:description" content="{{ seoMeta.description or description }}">
 <meta property="og:url" content="{{ absolutePageUrl }}">
 <meta property="og:locale" content="{{ locale }}">
-<meta name="twitter:card" content="{% if image -%}summary_large_image{% else %}summary{% endif %}">
-{%- if image -%}
-  <meta property="og:image" content="{{ image | url | absoluteUrl(env.baseUrl) }}">
+<meta name="twitter:card" content="{% if seoMeta.image -%}summary_large_image{% else %}summary{% endif %}">
+{%- if seoMeta.image -%}
+  <meta property="og:image" content="{{ seoMeta.image.url | url | absoluteUrl(env.baseUrl) }}">
 {%- endif -%}
 
 {# Favicon #}
