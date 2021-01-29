@@ -5,9 +5,9 @@
         {%- set altSlug = languageAlts | inferAltSlug(siteLocale) -%}
         <li class="language-select__option language-select__option--{{ siteLocale }}">
           {% if siteLocale == locale %}
-            <a href="/{{ siteLocale }}/">
+            <span>
               {{ siteLocale }}
-            </a>
+            </span>
           {% else %}
             <a href="{{ altSlug }}">
               {{ siteLocale }}

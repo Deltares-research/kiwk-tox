@@ -12,11 +12,13 @@
 
 .desktop-navigation__item {
   position: relative;
+  z-index: 1;
   display: flex;
 
   transition: background-color .1s linear;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     background-color: $color-grey-light;
   }
 }
@@ -26,6 +28,7 @@
   &:after {
     content: '';
     position: absolute;
+    z-index: 10;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -37,7 +40,8 @@
     transition: transform .15s;
   }
 
-  &:hover:after {
+  &:hover:after,
+  &:focus-within:after {
     transform-origin: 0 50%;
     transform: scaleY(1);
   }
@@ -66,14 +70,38 @@
   color: $color-brand-purple;
   text-decoration: none;
   @include fontWeight(bold);
+
+  &:focus {
+    outline: none;
+  }
 }
 
 //==================================== dropdown toggle
 .desktop-navigation__toggle {
   position: relative;
+  z-index: 1;
   height: $height-header-desktop;
   width: 25px;
   min-width: 25px;
+
+  background-color: $color-light;
+  transition: background-color .1s linear;
+
+  .desktop-navigation__item:hover &,
+  .desktop-navigation__item:focus-within & {
+    background-color: $color-grey-light;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.desktop-navigation__toggle--close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
 }
 
 .desktop-navigation__toggle:after {
@@ -117,6 +145,7 @@
 .desktop-navigation__subitems {
   display: none;
   position: absolute;
+  z-index: 5;
   top: 100%;
   left: 0;
   width: min-content;
@@ -140,8 +169,12 @@
   text-decoration: none;
   color: $color-brand-purple;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: $color-grey-light;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: $color-brand-ochre;
   }
 }

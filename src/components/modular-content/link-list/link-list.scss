@@ -42,10 +42,16 @@
   will-change: transform;
 }
 
+.link-list__item-content:hover {
+  background-color: $color-grey-light;
+}
+
+.link-list__item-content:focus-within {
+  background-color: $color-brand-ochre;
+}
+
 .link-list__item-content:hover,
 .link-list__item-content:focus-within {
-  background-color: $color-grey-light;
-
   .link-list__item-title,
   .link-list__item-body {
     transform: translateX($unit-small);

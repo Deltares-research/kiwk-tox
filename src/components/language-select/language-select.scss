@@ -13,7 +13,7 @@ $langauge-select-size: 30px;
   display: flex;
 }
 
-.language-select__option a {
+.language-select__option > * {
   display: flex;
   justify-content: center;
   width: $langauge-select-size;
@@ -32,8 +32,8 @@ $langauge-select-size: 30px;
   }
 }
 
-html[lang="en"] .language-select__option--en a,
-html[lang="nl"] .language-select__option--nl a {
+html[lang="en"] .language-select__option--en > * ,
+html[lang="nl"] .language-select__option--nl > * {
   background-color: $color-brand-purple;
   pointer-events: none;
   cursor: default;
