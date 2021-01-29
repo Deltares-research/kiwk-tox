@@ -82,6 +82,7 @@ query PageSlug($locale: SiteLocale) {
       }
       ... on ImageRecord {
         _modelApiKey
+        fullWidth
         image {
           title
           url

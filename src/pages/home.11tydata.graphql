@@ -47,6 +47,7 @@ query Home($locale: SiteLocale) {
       }
       ... on ImageRecord {
         _modelApiKey
+        fullWidth
         image {
           url
           alt
