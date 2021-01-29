@@ -2,6 +2,13 @@ query Home($locale: SiteLocale) {
   home(locale: $locale) {
     title
     intro
+    seoMeta {
+      title
+      description
+      image {
+        url
+      }
+    }
     sections {
       ... on LinkListRecord {
         id
