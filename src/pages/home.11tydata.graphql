@@ -11,31 +11,38 @@ query Home($locale: SiteLocale) {
     }
     sections {
       ... on LinkListRecord {
-        id
         _modelApiKey
         title
         items {
           title
           body
           link {
-            slug
+            ... on PageRecord {
+              slug
+            }
+            ... on DownloadRecord {
+              slug
+            }
           }
         }
       }
       ... on RichTextRecord {
-        id
         _modelApiKey
         richText
       }
       ... on CardGridRecord {
-        id
         _modelApiKey
         title
         items {
           title
           body
           link {
-            slug
+            ... on PageRecord {
+              slug
+            }
+            ... on DownloadRecord {
+              slug
+            }
           }
         }
       }

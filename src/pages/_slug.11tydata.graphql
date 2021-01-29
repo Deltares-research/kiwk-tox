@@ -1,5 +1,5 @@
 query PageSlug($locale: SiteLocale) {
-  allPages(locale: $locale) {
+  allPages(locale: $locale, first: 100) {
     id
     title
     slug
@@ -12,14 +12,18 @@ query PageSlug($locale: SiteLocale) {
     }
     sections {
       ... on LinkListRecord {
-        id
         _modelApiKey
         title
         items {
           title
           body
           link {
-            slug
+            ... on PageRecord {
+              slug
+            }
+            ... on DownloadRecord {
+              slug
+            }
           }
         }
       }
@@ -28,14 +32,18 @@ query PageSlug($locale: SiteLocale) {
         richText
       }
       ... on CardGridRecord {
-        id
         _modelApiKey
         title
         items {
           title
           body
           link {
-            slug
+            ... on PageRecord {
+              slug
+            }
+            ... on DownloadRecord {
+              slug
+            }
           }
         }
       }
