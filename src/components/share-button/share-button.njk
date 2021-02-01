@@ -1,0 +1,13 @@
+{% macro shareButton(title = false) %}
+<button class="button">
+  {{ title or 'shared' }}
+</button>
+<ol>
+  <li>
+    {{ 'share_via_email' | i18n }}
+  </li>
+  <li>
+    {{ 'share_copy_url' | i18n }}
+  </li>
+</ol>
+{% endmacro %}

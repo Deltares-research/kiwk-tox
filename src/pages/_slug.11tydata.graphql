@@ -109,6 +109,7 @@ query PageSlug($locale: SiteLocale) {
           id
           choicePreamble
           resultPreamble
+          shareButton
           branches {
             slug
             content
