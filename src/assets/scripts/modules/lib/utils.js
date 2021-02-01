@@ -37,3 +37,48 @@ export const indexToLetter = (index, capitalize = false) => {
   const letter = 'abcdefgh'.split('')[index];
   return capitalize ? letter.toUpperCase() : letter;
 };
+
+
+/**
+ * Utility Object queryStringChoices
+ *
+ * Get or set the choices of a decision tree, based on a unique key
+ */
+
+export const queryStringChoices = {
+
+  /**
+   * Get the choices for a specific key
+   *
+   * @param {String} key
+   * @returns {(String | undefined)}
+   */
+
+  get(key) {
+    if(!('URLSearchParams' in window)) {
+      return;
+    }
+    const params = new URLSearchParams(location.search);
+    const choices = params.get(key);
+    if(!choices) return;
+    const parsedChoices = decodeURIComponent(choices).split(',');
+    if(parsedChoices && parsedChoices.length) return parsedChoices;
+  },
+
+  /**
+   * Set the choices for a specific key
+   *
+   * @param {String} key
+   * @param {Array.<String>} choices
+   * @returns {(String | undefined)}
+   */
+
+  set(key, choices) {
+    if(!('URLSearchParams' in window)) {
+      return;
+    }
+    const params = new URLSearchParams(location.search);
+    params.set(key, encodeURIComponent(choices));
+    window.history.replaceState({}, '', `${ location.pathname }?${ params }`);
+  }
+};
