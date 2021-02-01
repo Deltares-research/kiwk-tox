@@ -1,6 +1,6 @@
 {% macro shareButton(title = false) %}
 <button class="button">
-  {{ title or 'shared' }}
+  {{ title or ('share_button' | i18n) }}
 </button>
 <ol>
   <li>
