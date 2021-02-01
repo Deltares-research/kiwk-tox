@@ -1,0 +1,33 @@
+{% from "../loader/loader.njk" import loader %}
+
+<div class="search">
+  <div class="section container search__inner" data-search>
+    <div class="container container--width-medium">
+      <form data-search-form>
+        <label for="search-input">{{ 'search_label' | i18n }}</label>
+
+        <input
+          id="search-input"
+          class="search__input"
+          type="text"
+          placeholder="{{ 'search_placeholder' | i18n }}"
+          data-search-input
+        />
+      </form>
+
+      <div class="search__loader">
+        {{ loader() }}
+      </div>
+
+      <p class="search__count">
+        <span data-search-count></span>
+        {{ 'search_results_found' | i18n }}
+      </p>
+
+      <ul class="search__results" data-search-results></ul>
+    </div>
+  </div>
+</div>
+
+<script src="{{ '/assets/scripts/search.js' | url }}"></script>
+<script>initSearch( "{{ locale }}" );</script>

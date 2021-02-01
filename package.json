@@ -22,6 +22,7 @@
   "author": "De Voorhoede",
   "license": "GNU",
   "dependencies": {
+    "@wildpow/datocms-search": "0.0.5",
     "focus-trap": "^5.1.0",
     "focus-visible": "^5.2.0",
     "list.js": "^2.3.1",

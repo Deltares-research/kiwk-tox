@@ -2,6 +2,7 @@ $langauge-select-size: 30px;
 
 .language-select {
   width: $langauge-select-size * 2;
+  min-width: $langauge-select-size * 2;
   height: $langauge-select-size;
   border-radius: $border-radius;
   overflow: hidden;
