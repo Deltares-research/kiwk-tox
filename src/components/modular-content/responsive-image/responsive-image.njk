@@ -3,7 +3,7 @@
   {% set caption = blockData.body %}
 
   <article class="section">
-    <figure>
+    <figure class="{% if not blockData.fullWidth %}container container--width-small{% endif %}">
       <div
         class="responsive-image__fixed-ratio"
         style="padding-top: {{ 100.0 / image.responsiveImage.aspectRatio }}%;
