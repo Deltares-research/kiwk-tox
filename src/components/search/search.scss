@@ -37,13 +37,17 @@
   }
 }
 
-.search__count {
-  margin-top: $unit-large;
+.search__count,
+.search__results {
   display: none;
 
   .search--has-results & {
     display: block;
   }
+}
+
+.search__count {
+  margin-top: $unit-large;
 }
 
 .search__results {

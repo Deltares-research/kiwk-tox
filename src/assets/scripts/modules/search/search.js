@@ -39,18 +39,21 @@ function initSearch(locale) {
 
   function performSearch(searchString) {
     $searchContainer.classList.add(IS_LOADING_CLASS);
+    $searchContainer.classList.remove(HAS_RESULT_CLASS);
 
     client.search(searchString, { locale })
     .then(response => {
 
-      $searchContainer.classList.add(HAS_RESULT_CLASS);
       $searchCount.innerHTML = `${response.total}`
 
       if(response.results) {
         $searchResults.innerHTML = renderResults(response.results)
       }
     })
-    .then( () => { $searchContainer.classList.remove(IS_LOADING_CLASS); })
+    .then( () => {
+      $searchContainer.classList.remove(IS_LOADING_CLASS);
+      $searchContainer.classList.add(HAS_RESULT_CLASS);
+     })
     .catch(function(error) {
       console.error(error);
     });
