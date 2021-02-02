@@ -7,6 +7,7 @@ const $searchResults = document.querySelector('[data-search-results]');
 const $searchCount = document.querySelector('[data-search-count]');
 const HAS_RESULT_CLASS = 'search--has-results';
 const IS_LOADING_CLASS = 'search--is-loading';
+let interval;
 
 function initSearch(locale) {
   if(!locale || !$searchContainer || !$searchForm || !$searchInput || !$searchResults || !$searchCount) {
@@ -29,8 +30,16 @@ function initSearch(locale) {
   }
 
   function handleInput(event) {
-    if(event.target.value) {
-      performSearch(event.target.value)
+    const { value } = event.target
+    if(value) {
+      $searchContainer.classList.add(IS_LOADING_CLASS);
+      $searchContainer.classList.remove(HAS_RESULT_CLASS);
+
+      clearTimeout(interval);
+      interval = setTimeout(() => {
+        interval = null;
+        performSearch(value);
+      }, 500);
     } else {
       $searchCount.innerHTML = '';
       $searchResults.innerHTML = '';
@@ -38,12 +47,8 @@ function initSearch(locale) {
   }
 
   function performSearch(searchString) {
-    $searchContainer.classList.add(IS_LOADING_CLASS);
-    $searchContainer.classList.remove(HAS_RESULT_CLASS);
-
     client.search(searchString, { locale })
     .then(response => {
-
       $searchCount.innerHTML = `${response.total}`
 
       if(response.results) {
