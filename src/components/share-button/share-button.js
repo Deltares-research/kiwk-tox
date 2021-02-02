@@ -1,4 +1,5 @@
 import copy from 'clipboard-copy';
+
 const $shareMailButtons = document.querySelectorAll('[data-share-mail]')
 const $shareCopyButtons = document.querySelectorAll('[data-share-copy]')
 
