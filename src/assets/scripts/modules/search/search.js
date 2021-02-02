@@ -1,5 +1,4 @@
 import { DatoCmsSearch } from "@wildpow/datocms-search";
-// import { debounce } from "../lib/utils";
 import debounce from 'lodash.debounce';
 
 const $searchContainer = document.querySelector('[data-search]');
@@ -43,7 +42,6 @@ function initSearch(locale) {
   }
 
   function performSearch(searchString) {
-    console.log('performSearch');
     client.search(searchString, { locale })
     .then(response => {
       $searchCount.innerHTML = `${response.total}`
