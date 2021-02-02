@@ -87,3 +87,9 @@
   box-shadow: none;
   cursor: default;
 }
+
+.tree__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $unit-medium;
+}

@@ -1,0 +1,42 @@
+.share-button {
+  position: relative;
+}
+
+.share-button .icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  margin-left: .5em;
+  fill: currentColor;
+}
+
+.share-button__items {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  padding: $unit-xsmall;
+
+  background-color: $color-light;
+  border-radius: $border-radius;
+  box-shadow: 0 0 20px rgba(black, .2);
+
+  display: none;
+
+  &.toggle--active {
+    display: block;
+  }
+}
+
+.share-button__item a {
+  display: block;
+
+  color: $color-brand-purple;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}

@@ -1,16 +1,27 @@
 {% macro shareButton(title = false, id) %}
-  {%- toggleId = 'share-button-' + id -%}
-  <div class="share-button">
-    <button class="button" data-toggle data-toggle-id="{{ toggleId }}">
-      {{ title or ('share_button' | i18n) }}
-    </button>
-    <ol id="{{ toggleId }}">
-      <li>
-        {{ 'share_via_email' | i18n }}
-      </li>
-      <li>
-        {{ 'share_copy_url' | i18n }}
-      </li>
-    </ol>
-  </div>
+  {% if not id %}
+    <div style="border: 2px solid red;">
+      ShareButton requires 'id' param
+    </div>
+  {% else %}
+    {%- set toggleId = 'share-button-' + id -%}
+    <div class="share-button">
+      <button class="button button--secondary" data-toggle data-toggle-id="{{ toggleId }}">
+        {{ title or ('share_button' | i18n) }}
+        {% icon 'share' %}
+      </button>
+      <ol id="{{ toggleId }}" class="share-button__items">
+        <li class="share-button__item">
+          <a href="mailto:?body" data-share-mail>
+            {{ 'share_via_email' | i18n }}
+          </a>
+        </li>
+        <li class="share-button__item">
+          <a href="/" data-share-copy>
+            {{ 'share_copy_url' | i18n }}
+          </a>
+        </li>
+      </ol>
+    </div>
+  {% endif %}
 {% endmacro %}

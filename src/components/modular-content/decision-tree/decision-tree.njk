@@ -87,7 +87,9 @@
         {% endraw %}
       </div>
     </template>
-    {{ shareButton(blockData.decisionTree.shareButton) }}
+    <div class="tree__actions">
+      {{ shareButton(title=blockData.decisionTree.shareButton, id=blockData.decisionTree.id) }}
+    </div>
   </div>
 </div>
 
