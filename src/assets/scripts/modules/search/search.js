@@ -13,8 +13,7 @@ function initSearch(locale) {
     return
   }
 
-  const client = new DatoCmsSearch('9dc2b0f0de8e37316b093e0e56cb8e', 'production');
-
+  const client = new DatoCmsSearch(process.env.DATO_API_TOKEN, 'production');
 
   $searchForm.addEventListener('submit', handleSubmit)
   $searchInput.addEventListener('input', handleInput);
