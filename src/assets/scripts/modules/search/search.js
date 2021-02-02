@@ -1,4 +1,6 @@
 import { DatoCmsSearch } from "@wildpow/datocms-search";
+// import { debounce } from "../lib/utils";
+import debounce from 'lodash.debounce';
 
 const $searchContainer = document.querySelector('[data-search]');
 const $searchForm = document.querySelector('[data-search-form]');
@@ -7,7 +9,6 @@ const $searchResults = document.querySelector('[data-search-results]');
 const $searchCount = document.querySelector('[data-search-count]');
 const HAS_RESULT_CLASS = 'search--has-results';
 const IS_LOADING_CLASS = 'search--is-loading';
-let interval;
 
 function initSearch(locale) {
   if(!locale || !$searchContainer || !$searchForm || !$searchInput || !$searchResults || !$searchCount) {
@@ -17,29 +18,24 @@ function initSearch(locale) {
   const client = new DatoCmsSearch(process.env.DATO_API_TOKEN, 'production');
 
   $searchForm.addEventListener('submit', handleSubmit)
-  $searchInput.addEventListener('input', handleInput);
+  $searchInput.addEventListener('input', debounce( handleInput, 500 )  );
 
   function handleSubmit(event) {
     event.preventDefault();
 
     if($searchInput.value) {
-      performSearch($searchInput.value)
+      performSearch($searchInput.value);
     } else {
       $searchContainer.classList.remove(HAS_RESULT_CLASS);
     }
   }
 
-  function handleInput(event) {
-    const { value } = event.target
-    if(value) {
+  function handleInput() {
+    if($searchInput.value) {
       $searchContainer.classList.add(IS_LOADING_CLASS);
       $searchContainer.classList.remove(HAS_RESULT_CLASS);
 
-      clearTimeout(interval);
-      interval = setTimeout(() => {
-        interval = null;
-        performSearch(value);
-      }, 500);
+      performSearch($searchInput.value);
     } else {
       $searchCount.innerHTML = '';
       $searchResults.innerHTML = '';
@@ -47,6 +43,7 @@ function initSearch(locale) {
   }
 
   function performSearch(searchString) {
+    console.log('performSearch');
     client.search(searchString, { locale })
     .then(response => {
       $searchCount.innerHTML = `${response.total}`
