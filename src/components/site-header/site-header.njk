@@ -17,5 +17,10 @@
       {{ desktopNavigation(localeMainMenu, strippedUrl, locale) }}
     {% endif %}
     {% include "../language-select/language-select.njk" %}
+
+    <a class="header__search-link" href="/{{ locale }}/search">
+      <span class="sr-only">{{ 'search_label' | i18n }}</span>
+      {% icon 'search' %}
+    </a>
   </div>
 </header>

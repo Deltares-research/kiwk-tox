@@ -1,0 +1,33 @@
+$loader-duration: .4s;
+$loader-stagger: $loader-duration * .35;
+$loader-count: 3;
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
+  margin-left: 3px;
+
+  border-radius: 50%;
+  background-color: $color-grey;
+
+  animation: load .5s ease-in-out infinite alternate;
+}
+
+@for $i from 1 through $loader-count {
+  .loader span:nth-child(#{$i}) {
+    animation-delay: $loader-stagger * ($loader-count - $i) * -1;
+  }
+}
+
+@keyframes load {
+  0% { transform: translateY(80%); }
+  100% { transform: translateY(-80%); }
+}

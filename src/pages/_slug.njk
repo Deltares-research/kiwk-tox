@@ -9,6 +9,7 @@ permalink: /{{ item.locale }}/{{ item.slug }}/
 eleventyComputed:
   locale: "{{ item.locale }}"
   languageAlts: "{{ item.languageAlts | json }}"
+  title: "{{ item.title }}"
 ---
 
 {% from "../components/hero/hero.njk" import hero %}
