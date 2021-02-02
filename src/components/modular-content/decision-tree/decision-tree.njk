@@ -1,3 +1,5 @@
+{% from "share-button/share-button.njk" import shareButton with context %}
+
 {% macro decisionTree(blockData) %}
 <div class="section">
   <div id="ID-{{ blockData.decisionTree.id }}" class="container container--width-medium">
@@ -85,6 +87,9 @@
         {% endraw %}
       </div>
     </template>
+    <div class="tree__actions">
+      {{ shareButton(title=blockData.decisionTree.shareButton, id=blockData.decisionTree.id) }}
+    </div>
   </div>
 </div>
 

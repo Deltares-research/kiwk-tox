@@ -1,23 +1,42 @@
 .button {
-  display: inline-block;
-  padding: .3em 1em .3em 1em;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  border: 0;
 
-  background-color: $color-brand-ochre;
+  display: inline-block;
+  padding: .35em 1em .3em 1em;
+
   border-radius: $border-radius;
   font-size: $font-size-base;
   font-family: $font-sans;
   @include fontWeight(bold);
 
-  color: $color-text;
   text-decoration: none;
 
-  box-shadow: 0 0 0 $color-brand-ochre;
   transition: box-shadow .15s;
 }
 
-.button:hover,
-.button:focus {
+.button--primary {
+  color: $color-text;
+  background-color: $color-brand-ochre;
+  box-shadow: 0 0 0 $color-brand-ochre;
+}
+
+.button--secondary {
+  color: $color-light;
+  background-color: $color-brand-purple;
+  box-shadow: 0 0 0 $color-brand-purple;
+}
+
+.button--primary:hover,
+.button--primary:focus {
   box-shadow: 0 0 0 3px $color-brand-ochre;
+}
+
+.button--secondary:hover,
+.button--secondary:focus {
+  box-shadow: 0 0 0 3px $color-brand-purple;
 }
 
 // case primary without icon
