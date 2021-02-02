@@ -1,13 +1,16 @@
-{% macro shareButton(title = false) %}
-<button class="button">
-  {{ title or ('share_button' | i18n) }}
-</button>
-<ol>
-  <li>
-    {{ 'share_via_email' | i18n }}
-  </li>
-  <li>
-    {{ 'share_copy_url' | i18n }}
-  </li>
-</ol>
+{% macro shareButton(title = false, id) %}
+  {%- toggleId = 'share-button-' + id -%}
+  <div class="share-button">
+    <button class="button" data-toggle data-toggle-id="{{ toggleId }}">
+      {{ title or ('share_button' | i18n) }}
+    </button>
+    <ol id="{{ toggleId }}">
+      <li>
+        {{ 'share_via_email' | i18n }}
+      </li>
+      <li>
+        {{ 'share_copy_url' | i18n }}
+      </li>
+    </ol>
+  </div>
 {% endmacro %}
