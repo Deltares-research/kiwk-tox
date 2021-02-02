@@ -1,9 +1,9 @@
-$langauge-select-size: 30px;
+$language-select-size: 30px;
 
 .language-select {
-  width: $langauge-select-size * 2;
-  min-width: $langauge-select-size * 2;
-  height: $langauge-select-size;
+  width: $language-select-size * 2;
+  min-width: $language-select-size * 2;
+  height: $language-select-size;
   border-radius: $border-radius;
   overflow: hidden;
   box-shadow: 0 0 0 2px $color-brand-purple;
@@ -17,8 +17,8 @@ $langauge-select-size: 30px;
 .language-select__option > * {
   display: flex;
   justify-content: center;
-  width: $langauge-select-size;
-  height: $langauge-select-size;
+  width: $language-select-size;
+  height: $language-select-size;
   padding-top: 0.1em;
 
   color: $color-brand-purple;
