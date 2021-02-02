@@ -1,3 +1,5 @@
+$search-size: 40px;
+
 .header {
   height: $height-header-mobile;
   background-color: $color-light;
@@ -25,6 +27,7 @@
   width: 150px;
   min-width: 150px;
   height: $height-header-mobile;
+  margin-right: auto;
 
   @media (min-width: $navigation-breakpoint) {
     width: 220px;
@@ -37,4 +40,35 @@
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+.header__search-link {
+  display: block;
+  width: $search-size;
+  height: $search-size;
+  margin-left: $unit-xsmall;
+
+  border-radius: 50%;
+  background-color: rgba($color-brand-ochre, 0);
+
+  transition: background-color .1s linear;
+
+  &:hover,
+  &:focus {
+    background-color: $color-brand-ochre;
+  }
+}
+
+.header__search-link svg {
+  display: block;
+  width: $search-size;
+  height: $search-size;
+
+  fill: transparent;
+  stroke: $color-brand-purple;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transform: scale(.5);
 }

@@ -1,0 +1,15 @@
+---
+layout: base
+pagination:
+  data: meta.locales
+  size: 1
+  alias: locale
+permalink: /{{ locale }}/search/
+eleventyComputed:
+  title: "Search"
+---
+
+{% from "../components/hero/hero.njk" import hero %}
+
+{{ hero(title="Search", level="secondary") }}
+{% include "../components/search/search.njk" %}

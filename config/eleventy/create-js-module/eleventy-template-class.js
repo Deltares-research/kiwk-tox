@@ -10,6 +10,7 @@ const OUTPUT_PATH = path.resolve(__dirname, '/memory-fs/js/');
 // Webpack shared config
 const envPlugin = new webpack.EnvironmentPlugin({
   ELEVENTY_ENV: process.env.ELEVENTY_ENV,
+  DATO_API_TOKEN: process.env.DATO_API_TOKEN,
 });
 
 const rules = [
