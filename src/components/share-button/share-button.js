@@ -9,8 +9,6 @@ function initShareButton() {
   }
 
   $shareMailButtons.forEach($shareMailButton => {
-    // const body = encodeURIComponent(window.location)
-    // $shareMailButton.href = `mailto:?body=${body}`
     $shareMailButton.addEventListener('click', handleMail)
   })
 
@@ -22,9 +20,6 @@ function initShareButton() {
     event.preventDefault()
     const href = `mailto:?body=${encodeURIComponent(window.location)}`
     window.location.href = href
-    // event.target.href = href
-    // const body = encodeURIComponent(window.location)
-    // event.target.href = `mailto:?body=${body}`
   }
 
   function handleCopy(event) {
