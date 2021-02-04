@@ -1,0 +1,27 @@
+{% macro friendlyButton(title = false, id) %}
+  {% if not id %}
+    <div style="border: 2px solid red;">
+      FriendlyButton requires 'id' param
+    </div>
+  {% else %}
+    {%- set toggleId = 'friendly-button-' + id -%}
+    <div class="friendly-button">
+      <button class="button button--secondary" data-toggle data-toggle-id="{{ toggleId }}">
+        {{ title or ('share_button' | i18n) }}
+        {% icon 'share' %}
+      </button>
+      <ol id="{{ toggleId }}" class="friendly-button__items">
+        <li class="friendly-button__item">
+          <button data-friendly-mail type="button" aria-role="link">
+            {{ 'share_via_email' | i18n }}
+          </button>
+        </li>
+        <li class="friendly-button__item">
+          <button data-friendly-copy type="button">
+            {{ 'share_copy_url' | i18n }}
+          </button>
+        </li>
+      </ol>
+    </div>
+  {% endif %}
+{% endmacro %}

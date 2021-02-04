@@ -1,8 +1,8 @@
-.share-button {
+.friendly-button {
   position: relative;
 }
 
-.share-button .icon {
+.friendly-button .icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -11,7 +11,7 @@
   fill: currentColor;
 }
 
-.share-button__items {
+.friendly-button__items {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
@@ -29,11 +29,17 @@
   }
 }
 
-.share-button__item a {
+.friendly-button__item button {
+  appearance: none;
+  outline: none;
+  border: 0;
+  background: none;
+
   display: block;
 
   color: $color-brand-purple;
   text-decoration: none;
+  text-align: left;
 
   &:hover,
   &:focus {
