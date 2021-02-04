@@ -1,4 +1,4 @@
-{% from "share-button/share-button.njk" import shareButton with context %}
+{% from "friendly-button/friendly-button.njk" import friendlyButton with context %}
 
 {% macro decisionTree(blockData) %}
 <div class="section">
@@ -88,7 +88,7 @@
       </div>
     </template>
     <div class="tree__actions">
-      {{ shareButton(title=blockData.decisionTree.shareButton, id=blockData.decisionTree.id) }}
+      {{ friendlyButton(title=blockData.decisionTree.shareButton, id=blockData.decisionTree.id) }}
     </div>
   </div>
 </div>
