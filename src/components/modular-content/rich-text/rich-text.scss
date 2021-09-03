@@ -2,6 +2,77 @@
   margin-top: 1em;
 }
 
+.rich-text h1,
+.rich-text h2,
+.rich-text h3,
+.rich-text h4,
+.rich-text h5,
+.rich-text h6 {
+  font-family: $font-sans;
+  @include fontWeight(bold);
+}
+
+.rich-text h1,
+.rich-text h2 {
+  font-size: 2.2rem;
+
+  @media (min-width: 800px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 3rem;
+  }
+}
+
+.rich-text h3 {
+  font-size: 2rem;
+
+  @media (min-width: 800px) {
+    font-size: 2.3rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 2.8rem;
+  }
+}
+
+.rich-text h4 {
+  font-size: 1.8rem;
+
+  @media (min-width: 800px) {
+    font-size: 2.1rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 2.6rem;
+  }
+}
+
+.rich-text h5 {
+  font-size: 1.6rem;
+
+  @media (min-width: 800px) {
+    font-size: 1.9rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 2.4rem;
+  }
+}
+
+.rich-text h6 {
+  font-size: 1.4rem;
+
+  @media (min-width: 800px) {
+    font-size: 1.7rem;
+  }
+
+  @media (min-width: 1000px) {
+    font-size: 2.2rem;
+  }
+}
+
 .rich-text a {
   text-decoration: underline;
   font-weight: 600;
