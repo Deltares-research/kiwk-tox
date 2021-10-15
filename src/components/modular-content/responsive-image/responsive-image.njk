@@ -6,9 +6,13 @@
     <figure class="{% if not blockData.fullWidth %}container container--width-small{% endif %}">
       <div
         class="responsive-image__fixed-ratio"
-        style="padding-top: {{ 100.0 / image.responsiveImage.aspectRatio }}%;
-              background-image: url({{ image.responsiveImage.base64 }});
-              background-size: cover;">
+        style="--image-width: {{ blockData.imageWidth or 100}}%"
+      >
+        <span
+          class="responsive-image__spacer"
+          style="padding-top: {{ 100.0 / image.responsiveImage.aspectRatio }}%;
+              background-image: url({{ image.responsiveImage.base64 }});"
+        ></span>
         <picture class="responsive-image__picture">
           <source type="image/webp" srcset="{{ image.url | imageUrl({ w: 776, fm: 'webp' }) }}">
           <img

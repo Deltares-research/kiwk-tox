@@ -1,5 +1,13 @@
 .responsive-image__fixed-ratio {
   position: relative;
+  width: var(--image-width);
+  margin-right: auto;
+  margin-left: auto;
+  background-size: cover;
+}
+
+.responsive-image__spacer {
+  display: block;
 }
 
 .responsive-image__picture {
