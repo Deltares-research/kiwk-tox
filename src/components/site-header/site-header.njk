@@ -16,7 +16,9 @@
       {{ mobileNavigation(localeMainMenu, strippedUrl, locale) }}
       {{ desktopNavigation(localeMainMenu, strippedUrl, locale) }}
     {% endif %}
-    {% include "../language-select/language-select.njk" %}
+
+    {# disable language selector #}
+    {# {% include "../language-select/language-select.njk" %} #}
 
     <a class="header__search-link" href="/{{ locale }}/search">
       <span class="sr-only">{{ 'search_label' | i18n }}</span>
