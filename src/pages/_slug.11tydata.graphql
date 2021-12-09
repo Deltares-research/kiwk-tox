@@ -96,6 +96,9 @@ query PageSlug($locale: SiteLocale) {
           title
           url
           alt
+          format
+          width
+          height
           responsiveImage {
             base64
             bgColor

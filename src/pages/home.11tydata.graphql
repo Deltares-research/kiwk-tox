@@ -59,6 +59,9 @@ query Home($locale: SiteLocale) {
         image {
           url
           alt
+          format
+          width
+          height
           responsiveImage {
             aspectRatio
             base64

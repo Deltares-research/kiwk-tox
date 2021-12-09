@@ -8,21 +8,32 @@
         class="responsive-image__fixed-ratio"
         style="--image-width: {{ blockData.imageWidth or 100}}%"
       >
-        <span
-          class="responsive-image__spacer"
-          style="padding-top: {{ 100.0 / image.responsiveImage.aspectRatio }}%;
-              background-image: url({{ image.responsiveImage.base64 }});"
-        ></span>
-        <picture class="responsive-image__picture">
-          <source type="image/webp" srcset="{{ image.url | imageUrl({ w: 776, fm: 'webp' }) }}">
+        {% if image.format === 'svg' %}
           <img
-            alt="{{ image.alt }}"
-            src="{{ image.url | imageUrl({ w: 776 }) }}"
-            loading="lazy"
-            class="responsive-image__figure-image"
-            style="width:100%; height:100%;"
-          />
-        </picture>
+              alt="{{ image.alt }}"
+              src="{{ image.url }}"
+              loading="lazy"
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              class="responsive-image__figure-image"
+            />
+        {% else %}
+          <span
+            class="responsive-image__spacer"
+            style="padding-top: {{ 100.0 / image.responsiveImage.aspectRatio }}%;
+                background-image: url({{ image.responsiveImage.base64 }});"
+          ></span>
+          <picture class="responsive-image__picture">
+            <source type="image/webp" srcset="{{ image.url | imageUrl({ w: 1200, fm: 'webp' }) }}">
+            <img
+              alt="{{ image.alt }}"
+              src="{{ image.url | imageUrl({ w: 1200 }) }}"
+              loading="lazy"
+              class="responsive-image__figure-image"
+              style="width:100%; height:100%;"
+            />
+          </picture>
+        {% endif %}
       </div>
       {% if caption %}
         <figcaption class="responsive-image__caption rich-text body-small font-muted">
